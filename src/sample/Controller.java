@@ -1,31 +1,33 @@
 package sample;
-
+import javafx.scene.control.TextField;
 import javafx.event.ActionEvent;
-
+import javafx.fxml.FXML;
+import java.util.Scanner;
 import javax.swing.*;
+import java.awt.*;
 
 public class Controller {
-    public void Min(int Getal1,int Getal2){
-        int uitkomst = Getal1 - Getal2;
-        JOptionPane.showMessageDialog(null,"Uitkomst is: " + String.valueOf(uitkomst));
+    @FXML TextField tfGetal1;
+    @FXML TextField tfGetal2;
+    @FXML TextField tfUitkomst;
+
+    public void Plus(ActionEvent actionEvent) {
+        float uitkomst = Float.parseFloat(tfGetal1.getText()) + Float.parseFloat(tfGetal2.getText());
+        tfUitkomst.setText(String.valueOf(uitkomst));
     }
 
-    public void Plus(int Getal1,int Getal2){
-        int uitkomst = Getal1 - Getal2;
-        JOptionPane.showMessageDialog(null,"Uitkomst is: " + String.valueOf(uitkomst));
+    public void Min(ActionEvent actionEvent) {
+        float uitkomst = Float.parseFloat(tfGetal1.getText()) - Float.parseFloat(tfGetal2.getText());
+        tfUitkomst.setText(String.valueOf(uitkomst));
     }
 
-    public void Devide(int Getal1,int Getal2){
-        int uitkomst = Getal1 / Getal2;
-        JOptionPane.showMessageDialog(null,"Uitkomst is: " + String.valueOf(uitkomst));
+    public void Devide(ActionEvent actionEvent) {
+        float uitkomst = Float.parseFloat(tfGetal1.getText()) / Float.parseFloat(tfGetal2.getText());
+        tfUitkomst.setText(String.valueOf(uitkomst));
     }
 
-    public void Multiply(int Getal1,int Getal2){
-        int uitkomst = Getal1 * Getal2;
-        JOptionPane.showMessageDialog(null,"Uitkomst is: " + String.valueOf(uitkomst));
-    }
-
-    public void Plus(ActionEvent actionEvent,int getal1, int getal2) {
-
+    public void Multipl(ActionEvent actionEvent) {
+        float uitkomst = Float.parseFloat(tfGetal1.getText()) * Float.parseFloat(tfGetal2.getText());
+        tfUitkomst.setText(String.valueOf(uitkomst));
     }
 }
