@@ -3,6 +3,7 @@ package sample;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 
 /**
@@ -15,7 +16,11 @@ public class EventRepository {
         Context = context;
     }
 
-    public ArrayList<Event> getEvents(){
-        return Context.getEvents();
+    public void addEvent(Event event){
+        Context.addEvent(event);
+    }
+
+    public ArrayList<Event> getEventsByMonth(Calendar startMonth, Calendar endMonth){
+        return Context.getEventsByMonth(startMonth,endMonth);
     }
 }

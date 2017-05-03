@@ -8,6 +8,7 @@ import javafx.beans.property.StringProperty;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 
 /**
@@ -16,8 +17,8 @@ import java.util.Date;
 
 public class Event implements java.io.Serializable{
     private String Name;
-    private DateTimeDV DateEnd;
-    private DateTimeDV DateStart;
+    private Calendar DateEnd;
+    private Calendar DateStart;
     private String Description;
     private EventRepository eventRepo;
     public Event(){
@@ -32,23 +33,28 @@ public class Event implements java.io.Serializable{
         return Name;
     }
 
-    public void setDateEnd(DateTimeDV date){
+    public void setDateEnd(Calendar date){
         DateEnd = date;
     }
 
-    public DateTimeDV getDateEnd(){return DateEnd;}
+    public Calendar getDateEnd(){return DateEnd;}
 
-    public DateTimeDV getDateStart(){return DateStart;}
+    public Calendar getDateStart(){return DateStart;}
 
-    public void setDateStart(DateTimeDV date){DateStart = date;}
+    public void setDateStart(Calendar date){DateStart = date;}
 
     public void setDescription(String description){Description = description;}
 
     public String getDescription(){return Description;}
 
 
-    public ArrayList<Event> getEvents() {
+    public void addEvent (Event event){
         eventRepo = new EventRepository(new EventSQLContext());
-        return eventRepo.getEvents();
+        eventRepo.addEvent(event);
+    }
+
+    public ArrayList<Event> getEventsByMonth(Calendar startMonth, Calendar endMonth){
+        eventRepo = new EventRepository(new EventSQLContext());
+        return eventRepo.getEventsByMonth(startMonth,endMonth);
     }
 }
