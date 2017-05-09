@@ -6,10 +6,10 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane fx:id="anchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="sample.EventController">
+<AnchorPane fx:id="anchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" >
   <children>
     <ListView fx:id="EventsList" layoutX="14.0" layoutY="14.0" prefHeight="372.0" prefWidth="286.0" />
-    <Button fx:id="btnSaveEvent" layoutX="307.0" layoutY="305.0" mnemonicParsing="false" onAction="#saveEvent" text="Save Event" />
+    <Button fx:id="btnSaveEvent" layoutX="307.0" layoutY="305.0" mnemonicParsing="false"  text="Save Event" />
     <TextField fx:id="tfNameEvent" layoutX="307.0" layoutY="32.0" prefWidth="279.0" />
     <Label layoutX="307.0" layoutY="12.0" text="Name:" />
     <Label layoutX="307.0" layoutY="58.0" text="Description:" />

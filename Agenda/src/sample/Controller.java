@@ -3,6 +3,7 @@ import com.sun.org.apache.xerces.internal.impl.dv.xs.DateTimeDV;
 import com.sun.xml.internal.ws.policy.privateutil.PolicyUtils;
 import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.LoadException;
 import javafx.scene.control.*;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -14,6 +15,8 @@ import java.util.*;
 import javax.swing.*;
 
 import javafx.scene.*;
+import javafx.scene.layout.AnchorPane;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 import sample.Calender;
 
@@ -58,7 +61,7 @@ public class Controller {
         setButtonsYearMonth();
     }
 
-    public void setButtonsYearMonth(){
+    public void setButtonsYearMonth() {
         this.table.getChildren().clear();
         Button monthtNext = new Button();
         monthtNext.setText("Next");
@@ -122,7 +125,13 @@ public class Controller {
 
         EventByMonth = getEventsByMonth();
         setLabelDays();
+        try
+        {
         setDaysButtons();
+        }
+        catch (InvocationTargetException e){
+            System.out.println(e);
+        }
         ButtonsPositionY = 156;
 
 
@@ -151,10 +160,10 @@ public class Controller {
         }
     }
 
-    @FXML public void setDaysButtons() {
+    @FXML public void setDaysButtons() throws InvocationTargetException{
         int Y = 156;
         for (int  i = 1; i < calender.GetCountDaysOfMonth(calender.IsLeapYear(year)).get(month); i++) {
-            String calculateDay = calender.CalculateDay(month + 1, i, year).toString();
+            final String calculateDay = calender.CalculateDay(month + 1, i, year).toString();
             final Button button = new Button();
             button.setText(String.valueOf(i));
             button.setLayoutX(SetPositionX(calculateDay));
@@ -165,16 +174,16 @@ public class Controller {
                     try {
                         FXMLLoader loader = new FXMLLoader(getClass().getResource("Event.fxml"));
                         Parent root = (Parent) loader.load();
-                        EventController controller = loader.<EventController>getController();
-                        Calendar cal = Calendar.getInstance();
-                        cal.set(year, month + 1, Integer.parseInt(button.getText()));
-
-                        controller.getDate(cal);
-
+                        loader.setController(new EventController());
+                        EventController controller = loader.getController();
+                        controller.setYear(year);
+                        controller.setMonth(month);
+                        controller.setDay(Integer.parseInt(button.getText()));
+                        controller.setLayout();
                         Stage stage = new Stage();
-                        stage.setTitle(year + "/" + (month + 1) + "/" + button.getText());
-                        stage.setScene(new Scene(root, 600, 400));
+                        stage.setScene(new Scene(root));
                         stage.show();
+
                     }
                     catch (Exception e){
                         System.out.println(e);
@@ -188,6 +197,7 @@ public class Controller {
             this.table.getChildren().add(button);
         }
     }
+
 
     public int SetPositionX(String day){
         try {
