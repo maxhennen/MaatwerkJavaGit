@@ -38,8 +38,8 @@ public class EventSQLContext implements IEventSQL {
             prepStat.setString(1,event.getName());
             prepStat.setString(2,event.getDescription());
 
-            prepStat.setDate(3,new java.sql.Date(event.getDateStart().getTime().getTime()));
-            prepStat.setDate(4, new java.sql.Date(event.getDateEnd().getTime().getTime()));
+            prepStat.setString(3,event.getDateStart().toString());
+            prepStat.setString(4, event.getDateEnd().toString());
             prepStat.executeUpdate();
             Conn.close();
         }

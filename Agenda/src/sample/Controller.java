@@ -173,12 +173,12 @@ public class Controller {
                 public void handle(ActionEvent event) {
                     try {
                         FXMLLoader loader = new FXMLLoader(getClass().getResource("Event.fxml"));
-                        Parent root = (Parent) loader.load();
-                        loader.setController(new EventController());
+                        AnchorPane root = (AnchorPane) loader.load();
+                        loader.setController(new EventController(root));
                         EventController controller = loader.getController();
-                        controller.setYear(year);
-                        controller.setMonth(month);
-                        controller.setDay(Integer.parseInt(button.getText()));
+                        Calendar cal = Calendar.getInstance();
+                        cal.set(year,month + 1,Integer.parseInt(button.getText()));
+                        controller.setCalendar(cal);
                         controller.setLayout();
                         Stage stage = new Stage();
                         stage.setScene(new Scene(root));

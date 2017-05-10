@@ -7,16 +7,5 @@
 <?import javafx.scene.layout.*?>
 
 <AnchorPane fx:id="anchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" >
-  <children>
-    <ListView fx:id="EventsList" layoutX="14.0" layoutY="14.0" prefHeight="372.0" prefWidth="286.0" />
-    <Button fx:id="btnSaveEvent" layoutX="307.0" layoutY="305.0" mnemonicParsing="false"  text="Save Event" />
-    <TextField fx:id="tfNameEvent" layoutX="307.0" layoutY="32.0" prefWidth="279.0" />
-    <Label layoutX="307.0" layoutY="12.0" text="Name:" />
-    <Label layoutX="307.0" layoutY="58.0" text="Description:" />
-    <TextArea fx:id="tfEventDescription" layoutX="307.0" layoutY="78.0" prefHeight="114.0" prefWidth="279.0" wrapText="true" />
-    <TextField fx:id="tfStartDate" layoutX="307.0" layoutY="224.0" prefWidth="200.0" />
-    <Label layoutX="307.0" layoutY="200.0" text="Start Date:" />
-    <Label layoutX="307.0" layoutY="250.0" text="End Date:" />
-    <TextField fx:id="tfEndDate" layoutX="307.0" layoutY="270.0" prefWidth="200.0" />
-  </children>
 </AnchorPane>
+

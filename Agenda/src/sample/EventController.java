@@ -1,106 +1,119 @@
 package sample;
 import com.sun.org.apache.xerces.internal.impl.dv.xs.DateTimeDV;
-import javafx.scene.*;
-import javafx.event.*;
-import javafx.fxml.*;
+import com.sun.xml.internal.ws.policy.privateutil.PolicyUtils;
+import javafx.event.EventHandler;
+import javafx.fxml.FXMLLoader;
+import javafx.fxml.LoadException;
 import javafx.scene.control.*;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextArea;
-import javafx.scene.layout.AnchorPane;
-import javafx.stage.Stage;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 
-import javax.print.DocFlavor;
-import javax.swing.*;
-import java.awt.*;
-import java.awt.TextField;
 import java.io.IOException;
-import java.sql.SQLException;
+import java.lang.reflect.InvocationTargetException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
+import java.util.*;
+import javax.swing.*;
+
+import javafx.scene.*;
+import javafx.scene.layout.AnchorPane;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
+import sample.Calender;
 
 /**
  * Created by maxhe on 1-5-2017.
  */
 public class EventController {
-    private @FXML AnchorPane anchorPane;
+    private @FXML AnchorPane AnchorPane;
+    private Calendar Calendar;
 
+    private ListView lstEvents;
+    private Label lblName;
+    private TextField tfName;
+    private Label lblDescription;
+    private TextArea taDescription;
+    private Label lblStartDate;
+    private TextField tfStartDate;
+    private Label lblEndDate;
+    private TextField tfEndDate;
 
-    private Integer Year;
-    private Integer Month;
-    private Integer Day;
-    String start;
-    String end;
-    public void setYear(int year){Year = year;}
-    public void setMonth(int month){Month = month;}
-    public void setDay(int day){Day = day;}
+    public void setAnchorPane(AnchorPane anchorPane){AnchorPane = anchorPane;}
+    public void setCalendar(Calendar calendar){Calendar = calendar;}
 
-    @FXML public void initialize() {
-
+    public EventController(AnchorPane anchorPane){
+        setAnchorPane(anchorPane);
     }
 
-
     public void setLayout(){
-        ListView lstEvents = new ListView();
+        lstEvents = new ListView();
         lstEvents.setLayoutX(0);
         lstEvents.setLayoutY(0);
         lstEvents.setMaxWidth(286);
         lstEvents.setMaxHeight(372);
+        this.AnchorPane.getChildren().add(lstEvents);
 
-        Label lblName = new Label();
-        lblName.setLayoutY(307);
-        lblName.setLayoutX(12);
+        lblName = new Label();
+        lblName.setLayoutY(12);
+        lblName.setLayoutX(307);
         lblName.setMaxWidth(43);
         lblName.setMaxHeight(20);
         lblName.setText("Name:");
+        this.AnchorPane.getChildren().add(lblName);
 
-        javafx.scene.control.TextField tfName = new javafx.scene.control.TextField();
+        tfName = new javafx.scene.control.TextField();
         tfName.setLayoutX(307);
         tfName.setLayoutY(32);
         tfName.setMaxWidth(279);
         tfName.setMaxHeight(26);
+        this.AnchorPane.getChildren().add(tfName);
 
-        Label lblDescription = new Label();
+        lblDescription = new Label();
         lblDescription.setLayoutX(307);
         lblDescription.setLayoutY(58);
         lblDescription.setMaxHeight(20);
-        lblDescription.setMaxWidth(79);
+        lblDescription.setMinWidth(200);
         lblDescription.setText("Description: ");
+        this.AnchorPane.getChildren().add(lblDescription);
 
-        TextArea taDescription = new TextArea();
+        taDescription = new TextArea();
         taDescription.setLayoutX(307);
         taDescription.setLayoutY(78);
         taDescription.setMaxHeight(114);
         taDescription.setMaxWidth(279);
+        this.AnchorPane.getChildren().add(taDescription);
 
-        Label lblStartDate = new Label();
+        lblStartDate = new Label();
         lblStartDate.setLayoutY(200);
-        lblDescription.setLayoutX(307);
-        lblDescription.setMaxWidth(70);
-        lblDescription.setMaxHeight(20);
-        lblDescription.setText("Start Date: ");
+        lblStartDate.setLayoutX(307);
+        lblStartDate.setMinWidth(70);
+        lblStartDate.setMaxHeight(20);
+        lblStartDate.setText("Start Date: ");
+        this.AnchorPane.getChildren().add(lblStartDate);
 
-        javafx.scene.control.TextField tfStartDate = new javafx.scene.control.TextField();
+        tfStartDate = new javafx.scene.control.TextField();
         tfStartDate.setLayoutY(224);
         tfStartDate.setLayoutX(307);
         tfStartDate.setMaxHeight(26);
         tfStartDate.setMaxWidth(200);
+        tfStartDate.setText(Calendar.get(Calendar.YEAR) + "-" + Calendar.get(Calendar.MONTH)+ "-" + Calendar.get(Calendar.DAY_OF_MONTH) + " 00:00");
+        this.AnchorPane.getChildren().add(tfStartDate);
 
-        Label lblEndDate = new Label();
+        lblEndDate = new Label();
         lblEndDate.setLayoutX(307);
         lblEndDate.setLayoutY(250);
         lblEndDate.setMaxHeight(20);
         lblEndDate.setMaxHeight(64);
         lblEndDate.setText("End Date:");
+        this.AnchorPane.getChildren().add(lblEndDate);
 
-        javafx.scene.control.TextField tfEndDate = new javafx.scene.control.TextField();
+        tfEndDate = new javafx.scene.control.TextField();
         tfEndDate.setLayoutX(307);
         tfEndDate.setLayoutY(270);
         tfEndDate.setMaxWidth(200);
         tfEndDate.setMaxHeight(26);
+        tfEndDate.setText(Calendar.get(Calendar.YEAR) + "-" + Calendar.get(Calendar.MONTH)+ "-" + Calendar.get(Calendar.DAY_OF_MONTH) + " 23:59");
+        this.AnchorPane.getChildren().add(tfEndDate);
 
         Button btnSaveEvent = new Button();
         btnSaveEvent.setLayoutY(307);
@@ -108,13 +121,20 @@ public class EventController {
         btnSaveEvent.setMaxHeight(27);
         btnSaveEvent.setMaxWidth(97);
         btnSaveEvent.setText("Save Event");
+        btnSaveEvent.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                saveEvent();
+            }
+        });
+        this.AnchorPane.getChildren().add(btnSaveEvent);
     }
 
-    /*public void saveEvent(){
+    public void saveEvent(){
         try {
             Event event = new Event();
-            event.setName(tfNameEvent.getText());
-            event.setDescription(tfEventDescription.getText());
+            event.setName(tfName.getText());
+            event.setDescription(taDescription.getText());
 
             SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm");
 
@@ -127,10 +147,14 @@ public class EventController {
             event.setDateEnd(endDate);
 
             event.addEvent(event);
+            JOptionPane.showMessageDialog(null,"Event is toegevoegd");
         }
         catch (ParseException e){
             System.out.println(e);
         }
-    }*/
+    }
 
+    public void updateListBox(){
+
+    }
 }
