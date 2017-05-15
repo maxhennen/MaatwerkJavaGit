@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.sql.*;
 import java.sql.Date;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
@@ -38,8 +39,8 @@ public class EventSQLContext implements IEventSQL {
             prepStat.setString(1,event.getName());
             prepStat.setString(2,event.getDescription());
 
-            prepStat.setString(3,event.getDateStart().toString());
-            prepStat.setString(4, event.getDateEnd().toString());
+            prepStat.setString(3,event.getDateStart());
+            prepStat.setString(4,event.getDateEnd());
             prepStat.executeUpdate();
             Conn.close();
         }
@@ -48,32 +49,27 @@ public class EventSQLContext implements IEventSQL {
         }
     }
 
-    public ArrayList<Event> getEventsByMonth(Calendar startMonth, Calendar endMonth){
+    public ArrayList<Event> getEventsByMonth(String  startMonth, String endMonth){
         try{
             ArrayList<Event> events = new ArrayList<Event>();
             getConnection();
-            String query = "SELECT * FROM Events WHERE EventDateStart >= ? and EventDateStart <= ?  ";
+            String query = "SELECT * FROM Events";
 
 
             prepStat = Conn.prepareStatement(query);
-            prepStat.setTimestamp(1,new java.sql.Timestamp(startMonth.getTimeInMillis()));
-            prepStat.setTimestamp(2,new java.sql.Timestamp(endMonth.getTimeInMillis()));
             results = prepStat.executeQuery();
 
             while(results.next()){
                 Event event = new Event();
+                event.setID(results.getInt("id"));
                 event.setName(results.getString("EventName"));
                 event.setDescription(results.getString("EventDescription"));
 
-                java.sql.Date dateStart = java.sql.Date.valueOf(results.getDate("EventDateStart").toString());
-                Calendar calStart = new GregorianCalendar();
-                calStart.setTime(dateStart);
-                event.setDateStart(calStart);
+                String dateStart = results.getString("EventDateStart");
+                String dateEnd = results.getString("EventDateEnd");
 
-                java.sql.Date dateEnd = java.sql.Date.valueOf(results.getDate("EventDateEnd").toString());
-                Calendar calEnd = new GregorianCalendar();
-                calEnd.setTime(dateEnd);
-                event.setDateEnd(calEnd);
+                event.setDateStart(dateStart);
+                event.setDateEnd(dateEnd);
 
                 events.add(event);
             }
@@ -85,4 +81,37 @@ public class EventSQLContext implements IEventSQL {
         }
     }
 
+    public void updateEvent(Event event){
+        try{
+            getConnection();
+            String query = "UPDATE Events SET EventName = ?, EventDescription = ?, EventDateStart = ?, EventDateEnd = ? WHERE id = ?";
+            prepStat = Conn.prepareStatement(query);
+            prepStat.setString(1,event.getName());
+            prepStat.setString(2,event.getDescription());
+
+            prepStat.setString(3,event.getDateStart());
+            prepStat.setString(4,event.getDateEnd());
+            prepStat.setInt(5,event.getID());
+            prepStat.executeUpdate();
+            Conn.close();
+        }
+        catch (SQLException e){
+            System.out.println(e);
+        }
+
+    }
+
+    public void deleteEvent(int id){
+        try{
+            getConnection();
+            String query = "DELETE  FROM Events WHERE id = ?";
+            prepStat = Conn.prepareStatement(query);
+            prepStat.setInt(1,id);
+            prepStat.executeUpdate();
+            Conn.close();
+        }
+        catch (SQLException e){
+            System.out.println(e);
+        }
+    }
 }

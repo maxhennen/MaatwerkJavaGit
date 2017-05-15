@@ -20,7 +20,15 @@ public class EventRepository {
         Context.addEvent(event);
     }
 
-    public ArrayList<Event> getEventsByMonth(Calendar startMonth, Calendar endMonth){
+    public ArrayList<Event> getEventsByMonth(String startMonth, String endMonth){
         return Context.getEventsByMonth(startMonth,endMonth);
+    }
+
+    public void updateEvent(Event event){
+        Context.updateEvent(event);
+    }
+
+    public void deleteEvent(int id){
+        Context.deleteEvent(id);
     }
 }
