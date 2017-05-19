@@ -15,11 +15,9 @@ public class Database {
             Class.forName("sun.jdbc.odbc.JdbcOdbcDriver");
             Conn = DriverManager.getConnection("jdbc:odbc:JavaLP","DESKTOP-VR2JK4O",null);
         }
-        catch (ClassNotFoundException e){
-            System.out.print(e);
+        catch (Exception e){
+            e.printStackTrace();
         }
-        catch (SQLException e){
-            System.out.print(e);
-        }
+
     }
 }
