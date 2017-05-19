@@ -9,4 +9,5 @@ import java.util.ArrayList;
  */
 public interface IPizzaUI {
     public ArrayList<Pizza> setComboBoxStandaarPizza();
+    public void formaatBerekenen(String vorm,int lengte,int diepte,int breedte);
 }

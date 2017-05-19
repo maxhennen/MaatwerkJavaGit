@@ -2,6 +2,8 @@ package sample.DomainClasses;
 
 import sun.misc.Compare;
 
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
 import java.util.Comparator;
 
 /**
@@ -38,4 +40,13 @@ public abstract class Products {
             return 0;
         }
     }
+
+    public String afrondenVerkoopprijs(float verkoopPrijs){
+        NumberFormat nf = NumberFormat.getNumberInstance();
+        DecimalFormat df = (DecimalFormat) nf;
+        df.applyLocalizedPattern("€00,00");
+        String output = df.format(verkoopPrijs);
+        return output;
+    }
+    public abstract String ToString();
 }

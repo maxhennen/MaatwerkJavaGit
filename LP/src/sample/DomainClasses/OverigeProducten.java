@@ -4,6 +4,8 @@ import sample.Data.OverigeProductenSQLContext;
 import sample.Interfaces.IOverigeProductenUI;
 import sample.Logic.OverigeProductenRepository;
 
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
 import java.util.ArrayList;
 
 /**
@@ -23,6 +25,10 @@ public class OverigeProducten extends Products implements IOverigeProductenUI{
     public ArrayList<OverigeProducten> AlleOverige(){
         OverigeRepo = new OverigeProductenRepository(new OverigeProductenSQLContext());
         return OverigeRepo.AlleOverige();
+    }
+
+    public String ToString(){
+        return getID() + " : " + getNaam() + " - " + afrondenVerkoopprijs(getVerkoopPrijs());
     }
 
 }

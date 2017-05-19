@@ -1,5 +1,6 @@
 package sample.Logic;
 
+import sample.DomainClasses.Ingredienten;
 import sample.DomainClasses.Pizza;
 import sample.Interfaces.IPizzaSQL;
 
@@ -16,5 +17,9 @@ public class PizzaRepository {
 
     public ArrayList<Pizza> AlleStandaardPizzas(){
         return Context.AlleStandaardPizzas();
+    }
+
+    public ArrayList<Ingredienten> IngredietenBijPizza(int id){
+        return Context.IngredientenBijPizza(id);
     }
 }

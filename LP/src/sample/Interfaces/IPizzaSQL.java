@@ -1,5 +1,6 @@
 package sample.Interfaces;
 
+import sample.DomainClasses.Ingredienten;
 import sample.DomainClasses.Pizza;
 
 import java.util.ArrayList;
@@ -9,4 +10,5 @@ import java.util.ArrayList;
  */
 public interface IPizzaSQL {
     public ArrayList<Pizza> AlleStandaardPizzas();
+    public ArrayList<Ingredienten> IngredientenBijPizza(int id);
 }

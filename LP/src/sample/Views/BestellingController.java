@@ -3,6 +3,8 @@ package sample.Views;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.scene.control.*;
 import javafx.scene.control.ListView;
 import javafx.scene.layout.AnchorPane;
@@ -10,6 +12,7 @@ import javafx.scene.text.FontWeight;
 import sample.DomainClasses.Ingredienten;
 import sample.DomainClasses.OverigeProducten;
 import sample.DomainClasses.Pizza;
+import sample.DomainClasses.Products;
 import sample.Enums.Vorm;
 import sample.ViewModel.IngredientenUIRepo;
 import sample.ViewModel.OverigeUIRepo;
@@ -17,6 +20,8 @@ import sample.ViewModel.PizzaUIRepo;
 import sun.plugin.com.AmbientProperty;
 
 import javax.swing.text.html.*;
+
+import java.util.ArrayList;
 
 import static javafx.scene.text.FontWeight.BOLD;
 
@@ -28,6 +33,9 @@ public class BestellingController {
     private IngredientenUIRepo IngredientenRepo;
     private OverigeUIRepo OverigeRepo;
 
+    private ArrayList<Products> Producten = new ArrayList<>();
+    private ArrayList<Ingredienten> Ingredienten = new ArrayList<>();
+
     private AnchorPane AnchorPane;
     private Label lblBestelling;
     private ComboBox cbPizza;
@@ -36,9 +44,7 @@ public class BestellingController {
     private Button btnToevoegenOverig;
     private Label lblEigenPizza;
     private Label lblKiesBodem;
-    private ComboBox cbSoortBodem;
     private ComboBox cbVormBodem;
-    private CheckBox chbGluten;
     private Label lblFormaat;
     private TextField tfFormaatX;
     private TextField tfFormaatY;
@@ -91,6 +97,12 @@ public class BestellingController {
         btnToevoegenPizza.setPrefWidth(71);
         btnToevoegenPizza.setMinHeight(27);
         btnToevoegenPizza.setText("Toevoegen");
+        btnToevoegenPizza.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                pizaToevoegen(cbPizza.getSelectionModel().getSelectedItem().toString());
+            }
+        });
         AnchorPane.getChildren().add(btnToevoegenPizza);
 
         btnToevoegenOverig = new Button();
@@ -99,6 +111,12 @@ public class BestellingController {
         btnToevoegenOverig.setMinHeight(27);
         btnToevoegenOverig.setPrefWidth(71);
         btnToevoegenOverig.setText("Toevoegen");
+        btnToevoegenOverig.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                overigeToevoegen(cbOverigeProducten.getSelectionModel().getSelectedItem().toString());
+            }
+        });
         AnchorPane.getChildren().add(btnToevoegenOverig);
 
         lblEigenPizza = new Label();
@@ -118,17 +136,9 @@ public class BestellingController {
         lblKiesBodem.setText("Kies bodem");
         AnchorPane.getChildren().add(lblKiesBodem);
 
-        cbSoortBodem = new ComboBox();
-        cbSoortBodem.setLayoutY(163);
-        cbSoortBodem.setLayoutX(14);
-        cbSoortBodem.setPrefWidth(100);
-        cbSoortBodem.setMinHeight(25);
-        cbSoortBodem.setPromptText("Soort");
-        AnchorPane.getChildren().add(cbSoortBodem);
-
         cbVormBodem = new ComboBox();
-        cbVormBodem.setLayoutX(130);
-        cbVormBodem.setLayoutY(164);
+        cbVormBodem.setLayoutX(14);
+        cbVormBodem.setLayoutY(163);
         cbVormBodem.setMinHeight(25);
         cbVormBodem.setPrefWidth(111);
         cbVormBodem.setPromptText("Vorm");
@@ -140,13 +150,6 @@ public class BestellingController {
         });
         AnchorPane.getChildren().add(cbVormBodem);
 
-        chbGluten = new CheckBox();
-        chbGluten.setLayoutX(14);
-        chbGluten.setLayoutY(200);
-        chbGluten.setMinHeight(20);
-        chbGluten.setPrefWidth(89);
-        chbGluten.setText("Gluten");
-        AnchorPane.getChildren().add(chbGluten);
 
         lblFormaat = new Label();
         lblFormaat.setLayoutX(14);
@@ -194,6 +197,12 @@ public class BestellingController {
         btnToevoegenIngredienten.setPrefWidth(83);
         btnToevoegenIngredienten.setMinHeight(27);
         btnToevoegenIngredienten.setText("Toevoegen");
+        btnToevoegenIngredienten.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                ingredientenToevoegen(cbIngredienten.getSelectionModel().getSelectedItem().toString());
+            }
+        });
         AnchorPane.getChildren().add(btnToevoegenIngredienten);
 
         lblIngredientenLst = new Label();
@@ -284,21 +293,18 @@ public class BestellingController {
         OverigeRepo = new OverigeUIRepo(new OverigeProducten());
 
         for (Pizza p:PizzaRepo.setComboBoxStandaardPizza()) {
-            cbPizza.getItems().add(p.getNaam() + " - " + p.getFormaat());
+            cbPizza.getItems().add(p.ToString());
         }
 
         for (Ingredienten I:IngredientenRepo.AlleIngredienten()){
-            cbIngredienten.getItems().add(I.getNaam());
+            cbIngredienten.getItems().add(I.ToString());
         }
 
         for (OverigeProducten O:OverigeRepo.AlleOverige()){
-            cbOverigeProducten.getItems().add(O.getNaam());
+            cbOverigeProducten.getItems().add(O.ToString());
         }
 
         cbVormBodem.setItems(FXCollections.observableArrayList(Vorm.values()));
-
-        cbSoortBodem.getItems().add("Dun");
-        cbSoortBodem.getItems().add("Dik");
     }
 
     public void setFormaatFields(String vorm){
@@ -319,5 +325,64 @@ public class BestellingController {
             tfFormaatY.visibleProperty().setValue(true);
             tfFormaatZ.visibleProperty().setValue(true);
         }
+    }
+
+    public void pizaToevoegen(String product){
+        try {
+            String productID[] = product.split(" :");
+            PizzaRepo = new PizzaUIRepo(new Pizza());
+            for (Pizza p : PizzaRepo.setComboBoxStandaardPizza()) {
+                if (p.getID() == Integer.parseInt(productID[0])) {
+                    Producten.add(p);
+                    lstProducten.getItems().add(p.ToString());
+                }
+            }
+        }
+        catch (NullPointerException e){
+            System.out.print(e);
+        }
+    }
+
+    public void overigeToevoegen(String product){
+        try {
+            String productID[] = product.split(" :");
+            OverigeRepo = new OverigeUIRepo(new OverigeProducten());
+
+            for (OverigeProducten o : OverigeRepo.AlleOverige()) {
+                if (o.getID() == Integer.parseInt(productID[0])) {
+                    Producten.add(o);
+                    lstProducten.getItems().add(o.ToString());
+                }
+            }
+        }
+        catch (NullPointerException e){
+            System.out.print(e);
+        }
+    }
+
+    public void ingredientenToevoegen(String ingredient){
+        try {
+            String productID[] = ingredient.split(" :");
+            IngredientenRepo = new IngredientenUIRepo(new Ingredienten());
+
+            for(Ingredienten I: IngredientenRepo.AlleIngredienten()){
+                if(I.getID() == Integer.parseInt(productID[0])){
+                    Ingredienten.add(I);
+                    lstIngredienten.getItems().add(I.ToString());
+                }
+            }
+        }
+        catch (NullPointerException e){
+            System.out.print(e);
+        }
+    }
+
+    public void formaatBerekenen(){
+        PizzaRepo = new PizzaUIRepo(new Pizza());
+        String vorm = cbVormBodem.getSelectionModel().getSelectedItem().toString();
+        int lengte = Integer.parseInt(tfFormaatX.getText());
+        int breedte = Integer.parseInt(tfFormaatY.getText());
+        int diepte = Integer.parseInt(tfFormaatZ.getText());
+        PizzaRepo.formaatBerekenen(vorm,lengte, breedte,diepte);
     }
 }

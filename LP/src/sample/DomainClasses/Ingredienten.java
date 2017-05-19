@@ -4,6 +4,8 @@ import sample.Data.IngredientenSQLContext;
 import sample.Interfaces.IIngredientenUI;
 import sample.Logic.IngredientenRepository;
 
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
 import java.util.ArrayList;
 
 /**
@@ -26,5 +28,10 @@ public class Ingredienten extends Products implements IIngredientenUI {
     public ArrayList<Ingredienten> AlleIngredienten(){
         IngredientenRepo = new IngredientenRepository(new IngredientenSQLContext());
         return IngredientenRepo.AlleIngredienten();
+    }
+
+
+    public String ToString(){
+        return getID() + " : " + getNaam() + " - " + afrondenVerkoopprijs(getVerkoopPrijs());
     }
 }

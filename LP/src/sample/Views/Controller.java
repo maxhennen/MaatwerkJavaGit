@@ -45,8 +45,8 @@ public class Controller {
         AnchorPane.getChildren().add(btnBestelling);
 
         javafx.scene.control.Button btnVeranderen = new javafx.scene.control.Button();
-        btnVeranderen.setLayoutX(200);
-        btnVeranderen.setLayoutY(0);
+        btnVeranderen.setLayoutX(0);
+        btnVeranderen.setLayoutY(100);
         btnVeranderen.setText("Verander Product");
         AnchorPane.getChildren().add(btnVeranderen);
 

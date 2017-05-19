@@ -17,4 +17,8 @@ public class PizzaUIRepo {
     public ArrayList<Pizza> setComboBoxStandaardPizza(){
         return Context.setComboBoxStandaarPizza();
     }
+
+    public void formaatBerekenen(String vorm, int lengte, int breedte, int diepte){
+        Context.formaatBerekenen(vorm, lengte,breedte,diepte);
+    }
 }

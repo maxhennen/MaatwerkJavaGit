@@ -28,7 +28,7 @@ public class OverigeProductenSQLContext extends Database implements IOverigeProd
                 product.setNaam(Results.getString("Naam"));
                 product.setAlcohol(Results.getBoolean("Alcoholisch"));
                 product.setInkoop(Results.getFloat("Inkoop"));
-                product.setVerkoopPrijs(Results.getFloat("Verkoop"));
+                product.setVerkoopPrijs(Results.getFloat("Verkoop")/100);
 
                 producten.add(product);
             }

@@ -47,4 +47,35 @@ public class PizzaSQLContext extends Database implements IPizzaSQL{
             return null;
         }
     }
+
+    public ArrayList<Ingredienten> IngredientenBijPizza(int id){
+        try {
+            ArrayList<Ingredienten> Ingredienten = new ArrayList<>();
+            getConnection();
+            String query = "SELECT i.* FROM Ingredienten i  JOIN PizzaIngredienten [pi] ON [pi].IngredientenID = i.IngredientenID \n" +
+                    "JOIN Pizza p ON p.PizzaID = [pi].PizzaID where p.PizzaID = ?";
+            Prep = Conn.prepareStatement(query);
+            Prep.setInt(1,id);
+            Results = Prep.executeQuery();
+
+            while (Results.next()){
+                Ingredienten ingredient = new Ingredienten();
+
+                ingredient.setID(Results.getInt("IngredientenID"));
+                ingredient.setNaam(Results.getString("Naam"));
+                ingredient.setInkoop(Results.getFloat("Inkoop"));
+                ingredient.setVerkoopPrijs(Results.getFloat("Verkoop"));
+                ingredient.setVega(Results.getBoolean("Veganistisch"));
+                ingredient.setHalal(Results.getBoolean("Halal"));
+
+                Ingredienten.add(ingredient);
+            }
+            Conn.close();
+            return Ingredienten;
+        }
+        catch (SQLException e){
+            System.out.print(e);
+            return null;
+        }
+    }
 }
