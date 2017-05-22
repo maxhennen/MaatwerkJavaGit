@@ -22,4 +22,5 @@ public class PizzaRepository {
     public ArrayList<Ingredienten> IngredietenBijPizza(int id){
         return Context.IngredientenBijPizza(id);
     }
+
 }

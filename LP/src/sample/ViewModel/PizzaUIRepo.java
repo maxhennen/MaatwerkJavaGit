@@ -1,5 +1,6 @@
 package sample.ViewModel;
 
+import sample.DomainClasses.Ingredienten;
 import sample.DomainClasses.Pizza;
 import sample.Interfaces.IPizzaUI;
 
@@ -18,7 +19,5 @@ public class PizzaUIRepo {
         return Context.setComboBoxStandaarPizza();
     }
 
-    public void formaatBerekenen(String vorm, int lengte, int breedte, int diepte){
-        Context.formaatBerekenen(vorm, lengte,breedte,diepte);
-    }
+
 }

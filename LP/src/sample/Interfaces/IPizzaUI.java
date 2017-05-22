@@ -1,5 +1,6 @@
 package sample.Interfaces;
 
+import sample.DomainClasses.Ingredienten;
 import sample.DomainClasses.Pizza;
 
 import java.util.ArrayList;
@@ -9,5 +10,4 @@ import java.util.ArrayList;
  */
 public interface IPizzaUI {
     public ArrayList<Pizza> setComboBoxStandaarPizza();
-    public void formaatBerekenen(String vorm,int lengte,int diepte,int breedte);
 }

@@ -19,22 +19,23 @@ import java.util.ArrayList;
 public class Pizza extends Products implements IPizzaUI {
     private float Formaat;
     private sample.Enums.Vorm Vorm;
-    private String Soort;
+    private String BodemSoort;
     private boolean Gluten;
     private ArrayList<Ingredienten> Ingredienten;
     private PizzaRepository PizzaRepo;
 
     public void setFormaat(float formaat){Formaat = formaat;}
     public void setVorm (Vorm vorm){Vorm = vorm;}
-    public void setSoort(String soort){Soort = soort;}
+    public void setSoort(String soort){BodemSoort = soort;}
     public void setGluten(boolean gluten){Gluten = gluten;}
     public void setIngredienten (ArrayList<Ingredienten> ingredienten){Ingredienten = ingredienten;}
 
     public float getFormaat(){return Formaat;}
     public Vorm getVorm(){return Vorm;}
-    public String getSoort(){return Soort;}
+    public String getSoort(){return BodemSoort;}
     public boolean getGluten(){return Gluten;}
     public ArrayList<Ingredienten> getIngredienten(){return Ingredienten;}
+
 
     public float prijsBepalen(ArrayList<Ingredienten> ingredienten, float formaat){
         float price = 0;
@@ -44,7 +45,7 @@ public class Pizza extends Products implements IPizzaUI {
         return price;
     }
 
-    public float rondOppervlakBerekenen(int diameter){
+    public float rondOppervlakBerekenen(float diameter){
         float berekening = (float) 0.25 * (float) Math.PI * diameter * diameter;
         if(checkFormaat(berekening)){
             return berekening;
@@ -53,7 +54,7 @@ public class Pizza extends Products implements IPizzaUI {
         return 0;
     }
 
-    public float vierkantOppervlakBerekenen(int lengte, int breedte){
+    public float vierkantOppervlakBerekenen(float lengte, float breedte){
         float berekening = lengte * breedte;
 
         if(checkFormaat(berekening)){
@@ -62,7 +63,7 @@ public class Pizza extends Products implements IPizzaUI {
         return 0;
     }
 
-    public float driehoekOppervlakBerekenen(int lengte, int breedte, int diepte){
+    public float driehoekOppervlakBerekenen(float lengte, float breedte, float diepte){
         float var = (lengte + breedte + diepte)/2;
         float berekening = var * (var - lengte) * (var - breedte) * (var - diepte);
         float uitkomst = (float) Math.sqrt(berekening);
@@ -73,18 +74,18 @@ public class Pizza extends Products implements IPizzaUI {
         return 0;
     }
 
-    public void formaatBerekenen(String vorm, int lengte, int breedte, int diepte){
+    public float formaatBerekenen(String vorm, float lengte, float breedte, float diepte){
 
         if(vorm.equals("Rond")){
-            setFormaat(rondOppervlakBerekenen(lengte));
+            return rondOppervlakBerekenen(lengte);
         }
         else if(vorm.equals("Vierkant")){
-            setFormaat(vierkantOppervlakBerekenen(lengte,breedte));
+            return vierkantOppervlakBerekenen(lengte,breedte);
         }
         else if(vorm.equals("Driehoek")){
-            setFormaat(driehoekOppervlakBerekenen(lengte,breedte,diepte));
+            return driehoekOppervlakBerekenen(lengte,breedte,diepte);
         }
-
+        return 0;
     }
 
     public boolean checkFormaat(float formaat){

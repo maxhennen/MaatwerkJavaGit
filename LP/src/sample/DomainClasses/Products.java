@@ -44,7 +44,7 @@ public abstract class Products {
     public String afrondenVerkoopprijs(float verkoopPrijs){
         NumberFormat nf = NumberFormat.getNumberInstance();
         DecimalFormat df = (DecimalFormat) nf;
-        df.applyLocalizedPattern("€00,00");
+        df.applyLocalizedPattern("€00.00");
         String output = df.format(verkoopPrijs);
         return output;
     }

@@ -3,22 +3,22 @@ package sample.Views;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.control.*;
 import javafx.scene.control.ListView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.FontWeight;
-import sample.DomainClasses.Ingredienten;
-import sample.DomainClasses.OverigeProducten;
-import sample.DomainClasses.Pizza;
-import sample.DomainClasses.Products;
+import sample.DomainClasses.*;
 import sample.Enums.Vorm;
+import sample.ViewModel.BestellingUIRepo;
 import sample.ViewModel.IngredientenUIRepo;
 import sample.ViewModel.OverigeUIRepo;
 import sample.ViewModel.PizzaUIRepo;
 import sun.plugin.com.AmbientProperty;
 
+import javax.print.DocFlavor;
 import javax.swing.text.html.*;
 
 import java.util.ArrayList;
@@ -32,6 +32,7 @@ public class BestellingController {
     private PizzaUIRepo PizzaRepo;
     private IngredientenUIRepo IngredientenRepo;
     private OverigeUIRepo OverigeRepo;
+    private BestellingUIRepo BestellingRepo;
 
     private ArrayList<Products> Producten = new ArrayList<>();
     private ArrayList<Ingredienten> Ingredienten = new ArrayList<>();
@@ -242,6 +243,12 @@ public class BestellingController {
         btnEigenPizzaToevoegen.setMinHeight(27);
         btnEigenPizzaToevoegen.setMinWidth(71);
         btnEigenPizzaToevoegen.setText("Toevoegen");
+        btnEigenPizzaToevoegen.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                nieuwePizza();
+            }
+        });
         AnchorPane.getChildren().add(btnEigenPizzaToevoegen);
 
         tfKlantnummer = new TextField();
@@ -329,12 +336,14 @@ public class BestellingController {
 
     public void pizaToevoegen(String product){
         try {
+            BestellingRepo = new BestellingUIRepo(new Bestelling());
             String productID[] = product.split(" :");
             PizzaRepo = new PizzaUIRepo(new Pizza());
             for (Pizza p : PizzaRepo.setComboBoxStandaardPizza()) {
                 if (p.getID() == Integer.parseInt(productID[0])) {
                     Producten.add(p);
                     lstProducten.getItems().add(p.ToString());
+                    BestellingRepo.productToevoegen(p);
                 }
             }
         }
@@ -345,6 +354,7 @@ public class BestellingController {
 
     public void overigeToevoegen(String product){
         try {
+            BestellingRepo = new BestellingUIRepo(new Bestelling());
             String productID[] = product.split(" :");
             OverigeRepo = new OverigeUIRepo(new OverigeProducten());
 
@@ -352,6 +362,7 @@ public class BestellingController {
                 if (o.getID() == Integer.parseInt(productID[0])) {
                     Producten.add(o);
                     lstProducten.getItems().add(o.ToString());
+                    BestellingRepo.productToevoegen(o);
                 }
             }
         }
@@ -377,12 +388,58 @@ public class BestellingController {
         }
     }
 
-    public void formaatBerekenen(){
-        PizzaRepo = new PizzaUIRepo(new Pizza());
+    public float stringToFloat(String string){
+        float flt;
+        if(string.equals("")){
+            flt = 0;
+        }
+
+        else {
+            flt = Integer.parseInt(string);
+        }
+        return flt;
+    }
+
+    public void nieuwePizza()    {
+        BestellingRepo = new BestellingUIRepo(new Bestelling());
+        ArrayList<Ingredienten> ingredienten = new ArrayList<>();
+        String naam = "Custom " + tfKlantnummer.getText();
         String vorm = cbVormBodem.getSelectionModel().getSelectedItem().toString();
-        int lengte = Integer.parseInt(tfFormaatX.getText());
-        int breedte = Integer.parseInt(tfFormaatY.getText());
-        int diepte = Integer.parseInt(tfFormaatZ.getText());
-        PizzaRepo.formaatBerekenen(vorm,lengte, breedte,diepte);
+        float x = stringToFloat(tfFormaatX.getText());
+        float y = stringToFloat(tfFormaatY.getText());
+        String soort = "Custom";
+        float z = stringToFloat(tfFormaatZ.getText());
+        boolean gluten = false;
+
+        ObservableList<String> lstData;
+        lstData = lstIngredienten.getItems();
+
+        for (String S:lstData) {
+            String[] getID = S.split(" :");
+            String[] overig = getID[1].split(" - ");
+            String[] euroteken = overig[1].split("€");
+            sample.DomainClasses.Ingredienten ingredient = new Ingredienten();
+            ingredient.setID(Integer.parseInt(getID[0]));
+            ingredient.setNaam(overig[0]);
+
+            ingredient.setVerkoopPrijs(Float.parseFloat(euroteken[1]));
+            ingredienten.add(ingredient);
+
+            if(overig[0].equals("Gluten")){
+                gluten = true;
+            }
+
+        }
+        BestellingRepo.nieuwePizza(naam,vorm,x,y,z,soort,Ingredienten,gluten);
+    }
+
+    public void nieuweBestelling(){
+        BestellingRepo = new BestellingUIRepo(new Bestelling());
+
+        int klantnummer = Integer.parseInt(tfKlantnummer.getText());
+        String naam = tfNaamKlant.getText();
+        String adres = tfAdresKlant.getText();
+
+        BestellingRepo.nieuweBestelling(klantnummer,naam,adres);
     }
 }
