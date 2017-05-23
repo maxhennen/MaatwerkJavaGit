@@ -1,6 +1,7 @@
 package sample.ViewModel;
 
 import sample.DomainClasses.Ingredienten;
+import sample.DomainClasses.Pizza;
 import sample.DomainClasses.Products;
 import sample.Interfaces.IBestellingUI;
 
@@ -16,9 +17,9 @@ public class BestellingUIRepo {
         Context = context;
     }
 
-    public void nieuwePizza(String naam, String vorm, float x, float y, float z, String bodemSoort,
-                            ArrayList<Ingredienten> ingredienten, boolean gluten){
-        Context.nieuwePizza(naam,vorm, x,y,z,bodemSoort,ingredienten,gluten);
+    public Pizza nieuwePizza(String naam, String vorm, float x, float y, float z, String bodemSoort,
+                             ArrayList<Ingredienten> ingredienten, boolean gluten){
+        return Context.nieuwePizza(naam,vorm, x,y,z,bodemSoort,ingredienten,gluten);
     }
 
     public void productToevoegen(Products product){

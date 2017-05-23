@@ -28,7 +28,7 @@ public class OverigeProducten extends Products implements IOverigeProductenUI{
     }
 
     public String ToString(){
-        return getID() + " : " + getNaam() + " - " + afrondenVerkoopprijs(getVerkoopPrijs());
+        return getID() + " : " + getNaam() + " - " + afrondenVerkoopprijs(getVerkoopPrijs()*100);
     }
 
 }

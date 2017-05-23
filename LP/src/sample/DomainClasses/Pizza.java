@@ -7,6 +7,7 @@ import sample.Interfaces.IPizzaUI;
 import sample.Logic.PizzaRepository;
 import sample.ViewModel.PizzaUIRepo;
 
+import javax.swing.*;
 import java.io.FileInputStream;
 import java.text.DecimalFormat;
 import java.text.Normalizer;
@@ -99,7 +100,7 @@ public class Pizza extends Products implements IPizzaUI {
             }
         }
         catch (IndexOutOfBoundsException e){
-            System.out.print("Geen geldig formaat");
+            JOptionPane.showMessageDialog(null,"Geen geldig formaat");
             return false;
         }
     }
@@ -108,12 +109,12 @@ public class Pizza extends Products implements IPizzaUI {
         PizzaRepo = new PizzaRepository(new PizzaSQLContext());
         ArrayList<Pizza> pizzas = PizzaRepo.AlleStandaardPizzas();
         for (Pizza p: pizzas) {
-            p.setVerkoopPrijs(prijsBepalen(PizzaRepo.IngredietenBijPizza(p.getID()),p.getFormaat()));
+            p.setVerkoopPrijs((float)(prijsBepalen(PizzaRepo.IngredietenBijPizza(p.getID()),p.getFormaat())* 0.75));
         }
         return pizzas;
     }
 
     public String ToString(){
-        return getID() + " : " + getNaam() + " - " + getFormaat() + " - " + afrondenVerkoopprijs(getVerkoopPrijs()/100);
+        return getID() + " : " + getNaam() + " - " + getFormaat() + " - " + afrondenVerkoopprijs(getVerkoopPrijs());
     }
 }

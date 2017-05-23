@@ -21,59 +21,97 @@ public class BestellingSQLContext extends Database implements IBestellingSQL  {
 
     public void nieuweBestelling(ArrayList<Products> producten, Klant klant,float TotaalPrijs){
         try {
+                addKlant(klant,TotaalPrijs);
+                addBestelling(producten);
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
+    }
 
+    public void addBestelling(ArrayList<Products> producten){
+        try {
             getConnection();
-            String[] queries = new String[3];
-            int i = 0;
-            if (klant.getKlantnummer() == 0) {
-                queries[i] = "Insert into Klant(Naam,Adres)Values(?,?);";
-                Prep.setString(1, klant.getNaam());
-                Prep.setString(2,klant.getAdres());
-                Prep.addBatch();
 
-                i++;
+            for (Products p:producten) {
+                if(p instanceof Pizza){
 
-                queries[i] = "Insert into Bestelling(DatumTijd,TotaalPrijs,Klantnummer)Values(?,?,(Select MAX (Klantnummer) From Klant));";
-                Prep.setDate(1, DateTimeNow());
-                Prep.setFloat(2,TotaalPrijs);
-                i++;
-                Prep.addBatch();
-            }
+                    if(((Pizza) p).getSoort().equals("Custom")){
+                        String queryCustom = "Insert into Pizza(Naam,Formaat,Vorm,Soort,Gluten)" +
+                                "Values(?,?,?,?,?);";
+                        Prep = Conn.prepareStatement(queryCustom);
+                        Prep.setString(1,p.getNaam());
+                        Prep.setFloat(2,((Pizza) p).getFormaat());
+                        Prep.setString(3,((Pizza) p).getVorm().toString());
+                        Prep.setString(4,((Pizza) p).getSoort());
+                        Prep.setBoolean(5,((Pizza) p).getGluten());
+                        Prep.executeUpdate();
 
-            else if(klant.getAdres() != null && klant.getNaam() != null){
-                queries[i] = "Insert into Bestelling(DatumTijd,TotaalPrijs,Klantnummer)Values(?,?,?);";
-                Prep.setDate(1,DateTimeNow());
-                Prep.setFloat(2,TotaalPrijs);
-                Prep.setInt(3,klant.getKlantnummer());
-                i++;
-                Prep.addBatch();
-            }
+                        String queryPizza = "Insert into Bestelregel(PizzaID,BestellingID,OverigeProductenID)" +
+                                "Values((SELECT MAX (PizzaID) FROM Pizza),(Select Max(BestellingID) From Bestelling),null);";
+                        Prep = Conn.prepareStatement(queryPizza);
+                        Prep.executeUpdate();
+                    }
+                    else {
+                        String queryPizza = "Insert into Bestelregel(PizzaID,BestellingID,OverigeProductenID)" +
+                                "Values(?,(Select Max(BestellingID) From Bestelling),null);";
+                        Prep = Conn.prepareStatement(queryPizza);
+                        Prep.setInt(1, p.getID());
+                        Prep.executeUpdate();
+                    }
 
-            for (Products P:producten) {
-                queries[i] = "Insert into Bestelregel(PizzaID,BestellingID,OverigeProductenID)Values(?,(Select Max (BestellingID) From Bestelling),?);";
-                if(P instanceof Pizza){
-                    Prep.setInt(1,P.getID());
-                    Prep.setNull(2,0);
-
-                    Prep.addBatch();
                 }
-                else if(P instanceof OverigeProducten){
-                    Prep.setNull(1,0);
-                    Prep.setInt(2,P.getID());
+
+                else if(p instanceof OverigeProducten){
+                    String queryOverige = "Insert into Bestelregel(PizzaID,BestellingID,OverigeProductenID)" +
+                            "Values(null,(Select Max(BestellingID) From Bestelling),?);";
+                    Prep = Conn.prepareStatement(queryOverige);
+                    Prep.setInt(1,p.getID());
+                    Prep.executeUpdate();
                 }
             }
-
-            Prep.executeBatch();
-
+            Conn.close();
         }
         catch (SQLException e){
             e.printStackTrace();
         }
     }
 
-    public Date DateTimeNow(){
+    public void addKlant(Klant klant,float TotaalPrijs){
+        try {
+            getConnection();
+
+            if(klant.getKlantnummer() == 0 && klant.getNaam() != "" && klant.getAdres() != "") {
+                String queryAddKlant = "Insert into Klant(Naam,Adres)Values(?,?);";
+                Prep = Conn.prepareStatement(queryAddKlant);
+                Prep.setString(1, klant.getNaam());
+                Prep.setString(2, klant.getAdres());
+                Prep.executeUpdate();
+
+                String queryAddBestelling = "Insert into Bestelling(Klantnummer,DatumTijd)" +
+                        "Values((Select MAX (KlantNummer)FROM Klant),?);";
+                Prep = Conn.prepareStatement(queryAddBestelling);
+                Prep.setString(1,DateTimeNow());
+                Prep.executeUpdate();
+            }
+
+            else if(klant.getKlantnummer() > 0){
+                String queryAddBestelling = "Insert into Bestelling(Klantnummer,DatumTijd)Values(?,?);";
+                Prep = Conn.prepareStatement(queryAddBestelling);
+                Prep.setInt(1,klant.getKlantnummer());
+                Prep.setString(2,DateTimeNow());
+                Prep.executeUpdate();
+            }
+            Conn.close();
+        }
+        catch (SQLException e){
+            e.printStackTrace();
+        }
+    }
+
+    public String DateTimeNow(){
         java.util.Date date = new java.util.Date();
 
-        return (Date) date;
+        return date.toString();
     }
 }

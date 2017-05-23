@@ -2,6 +2,7 @@ package sample.Interfaces;
 
 import sample.DomainClasses.Ingredienten;
 import sample.DomainClasses.Klant;
+import sample.DomainClasses.Pizza;
 import sample.DomainClasses.Products;
 
 import java.util.ArrayList;
@@ -11,8 +12,8 @@ import java.util.ArrayList;
  */
 public interface IBestellingUI {
 
-    void nieuwePizza(String naam, String vorm, float x, float y, float z, String bodemSoort,
-                            ArrayList<Ingredienten> ingredienten, boolean gluten);
+    Pizza nieuwePizza(String naam, String vorm, float x, float y, float z, String bodemSoort,
+                      ArrayList<Ingredienten> ingredienten, boolean gluten);
     void productToevoegen(Products product);
 
     void nieuweBestelling(int klantnummer, String naam, String adres);

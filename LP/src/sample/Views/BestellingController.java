@@ -21,6 +21,7 @@ import sun.plugin.com.AmbientProperty;
 import javax.print.DocFlavor;
 import javax.swing.text.html.*;
 
+import java.text.NumberFormat;
 import java.util.ArrayList;
 
 import static javafx.scene.text.FontWeight.BOLD;
@@ -32,7 +33,7 @@ public class BestellingController {
     private PizzaUIRepo PizzaRepo;
     private IngredientenUIRepo IngredientenRepo;
     private OverigeUIRepo OverigeRepo;
-    private BestellingUIRepo BestellingRepo;
+    private BestellingUIRepo BestellingRepo = new BestellingUIRepo(new Bestelling());
 
     private ArrayList<Products> Producten = new ArrayList<>();
     private ArrayList<Ingredienten> Ingredienten = new ArrayList<>();
@@ -289,6 +290,12 @@ public class BestellingController {
         btnOpslaanBestelling.setMinWidth(120);
         btnOpslaanBestelling.setMinHeight(27);
         btnOpslaanBestelling.setText("Opslaan");
+        btnOpslaanBestelling.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                nieuweBestelling();
+            }
+        });
         AnchorPane.getChildren().add(btnOpslaanBestelling);
 
         setValuesUI();
@@ -336,7 +343,6 @@ public class BestellingController {
 
     public void pizaToevoegen(String product){
         try {
-            BestellingRepo = new BestellingUIRepo(new Bestelling());
             String productID[] = product.split(" :");
             PizzaRepo = new PizzaUIRepo(new Pizza());
             for (Pizza p : PizzaRepo.setComboBoxStandaardPizza()) {
@@ -354,7 +360,6 @@ public class BestellingController {
 
     public void overigeToevoegen(String product){
         try {
-            BestellingRepo = new BestellingUIRepo(new Bestelling());
             String productID[] = product.split(" :");
             OverigeRepo = new OverigeUIRepo(new OverigeProducten());
 
@@ -401,14 +406,16 @@ public class BestellingController {
     }
 
     public void nieuwePizza()    {
-        BestellingRepo = new BestellingUIRepo(new Bestelling());
         ArrayList<Ingredienten> ingredienten = new ArrayList<>();
+
         String naam = "Custom " + tfKlantnummer.getText();
         String vorm = cbVormBodem.getSelectionModel().getSelectedItem().toString();
+
         float x = stringToFloat(tfFormaatX.getText());
         float y = stringToFloat(tfFormaatY.getText());
-        String soort = "Custom";
         float z = stringToFloat(tfFormaatZ.getText());
+
+        String soort = "Custom";
         boolean gluten = false;
 
         ObservableList<String> lstData;
@@ -430,16 +437,23 @@ public class BestellingController {
             }
 
         }
-        BestellingRepo.nieuwePizza(naam,vorm,x,y,z,soort,Ingredienten,gluten);
+        lstProducten.getItems().add(BestellingRepo.nieuwePizza(naam,vorm,x,y,z,soort,Ingredienten,gluten).ToString());
     }
 
     public void nieuweBestelling(){
-        BestellingRepo = new BestellingUIRepo(new Bestelling());
+        int klantnummer = 0;
+        String naam = "";
+        String adres = "";
 
-        int klantnummer = Integer.parseInt(tfKlantnummer.getText());
-        String naam = tfNaamKlant.getText();
-        String adres = tfAdresKlant.getText();
+        try {
+            klantnummer = Integer.parseInt(tfKlantnummer.getText());
+        }
+        catch (NumberFormatException e){
 
-        BestellingRepo.nieuweBestelling(klantnummer,naam,adres);
+        }
+        naam = tfNaamKlant.getText();
+        adres = tfAdresKlant.getText();
+
+        BestellingRepo.nieuweBestelling(klantnummer, naam, adres);
     }
 }

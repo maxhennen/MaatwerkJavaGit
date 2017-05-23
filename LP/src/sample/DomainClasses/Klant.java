@@ -15,4 +15,5 @@ public class Klant {
     public int getKlantnummer(){return Klantnummer;}
     public String getNaam(){return Naam;}
     public String getAdres(){return Adres;}
+
 }

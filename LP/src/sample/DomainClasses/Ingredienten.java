@@ -32,6 +32,6 @@ public class Ingredienten extends Products implements IIngredientenUI {
 
 
     public String ToString(){
-        return getID() + " : " + getNaam() + " - " + afrondenVerkoopprijs(getVerkoopPrijs());
+        return getID() + " : " + getNaam() + " - " + afrondenVerkoopprijs(getVerkoopPrijs()*100);
     }
 }
