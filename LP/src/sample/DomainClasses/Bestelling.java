@@ -1,15 +1,15 @@
 package sample.DomainClasses;
 
 import com.sun.xml.internal.ws.policy.privateutil.PolicyUtils;
+import javafx.stage.FileChooser;
+import javafx.stage.Stage;
 import sample.Data.BestellingSQLContext;
 import sample.Interfaces.IBestellingSQL;
 import sample.Interfaces.IBestellingUI;
 import sample.Logic.BestellingRepository;
 
 import javax.swing.*;
-import java.io.BufferedWriter;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
 import java.util.*;
 
 /**
@@ -49,7 +49,7 @@ public class Bestelling implements IBestellingUI {
         klant.setAdres(adres);
         BerekenTotaalPrijs();
         BestellingRepo.nieuweBestelling(getProducten(), klant,TotaalPrijs);
-        KlantbonOpslaan(naam);
+        KlantbonOpslaan(naam , klantnummer);
         JOptionPane.showMessageDialog(null,"Bestelling is gelukt. Bon is opgeslagen.");
     }
 
@@ -59,13 +59,13 @@ public class Bestelling implements IBestellingUI {
         }
     }
 
-    public void KlantbonOpslaan(String klant){
+    public void KlantbonOpslaan(String klant, int klantnummer){
         try {
             Date date = new Date();
             float excBTW = 0;
             float totaalprijs = 0;
             ArrayList<String> lines = new ArrayList<>();
-            lines.add("Klantbon voor: " + klant);
+            lines.add("Klantbon voor: " + klant + klantnummer);
 
             for (Products p : Producten) {
                 lines.add(p.getNaam()+ " : " + String.valueOf(p.getVerkoopPrijs()));
@@ -76,13 +76,30 @@ public class Bestelling implements IBestellingUI {
             lines.add("BTW: " +  String.valueOf(totaalprijs - excBTW));
             lines.add("Totaalprijs: " + String.valueOf(totaalprijs));
 
-            FileWriter fileWriter = new FileWriter(date.toString());
-            for(String s:lines){
-                fileWriter.write(s);
+            String txtfile = klant + " " + date;
+            Stage stage = new Stage();
+            stage.setTitle("Bon opslaan");
+
+            FileChooser fileChooser = new FileChooser();
+            File file = fileChooser.showSaveDialog(stage);
+
+            fileChooser.setInitialFileName(txtfile + ".txt");
+
+            FileWriter fw = new FileWriter(file.getAbsoluteFile());
+            BufferedWriter bw = new BufferedWriter(fw);
+
+            String breakline = System.getProperty("line.separator");
+
+            for (String s:lines) {
+                bw.write(s);
+                bw.write(breakline);
             }
-            fileWriter.close();
+                bw.close();
+
+
+
         }
-        catch (IOException e){
+        catch (Exception e){
             e.printStackTrace();
         }
 

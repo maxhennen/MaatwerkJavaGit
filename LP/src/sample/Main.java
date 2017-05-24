@@ -15,7 +15,7 @@ public class Main extends Application {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("Views/sample.fxml"));
         AnchorPane root = (AnchorPane) loader.load();
         Controller controller = new Controller();
-        controller.setAnchorPane(root);
+        controller.setAnchorpane(root);
         controller.setLayout();
         primaryStage.setTitle("Menu");
         primaryStage.setScene(new Scene(root, 300, 275));

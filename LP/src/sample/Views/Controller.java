@@ -1,5 +1,7 @@
 package sample.Views;
 
+import com.sun.org.apache.xpath.internal.operations.Variable;
+import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
@@ -7,14 +9,17 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import sample.DomainClasses.Bestelling;
 
 import java.awt.*;
 import java.awt.Button;
 import java.io.IOException;
+import java.lang.reflect.Type;
+import java.util.Observable;
 
-public class Controller {
+public class Controller extends IController {
     private AnchorPane AnchorPane;
-    public void setAnchorPane(AnchorPane anchorPane){AnchorPane = anchorPane;}
+    public void setAnchorpane(AnchorPane anchorPane){AnchorPane = anchorPane;}
     public void setLayout(){
 
         javafx.scene.control.Button btnBestelling = new javafx.scene.control.Button();
@@ -26,20 +31,7 @@ public class Controller {
         btnBestelling.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                try {
-                    FXMLLoader loader = new FXMLLoader(getClass().getResource("Bestelling.fxml"));
-                    AnchorPane anchorPane = (AnchorPane) loader.load();
-                    BestellingController controller = new BestellingController();
-                    controller.setAnchorPane(anchorPane);
-                    controller.setLayout();
-                    Stage stage = new Stage();
-                    stage.setTitle("Nieuwe Bestelling");
-                    stage.setScene(new Scene(anchorPane));
-                    stage.show();
-                }
-                catch (IOException e){
-                    System.out.println(e);
-                }
+            newStage("Bestelling.fxml",new BestellingController());
             }
         });
         AnchorPane.getChildren().add(btnBestelling);
@@ -56,5 +48,22 @@ public class Controller {
         btnWinstOmzet.setMinWidth(170);
         btnWinstOmzet.setText("Omzet Bekijken");
         AnchorPane.getChildren().add(btnWinstOmzet);
+    }
+
+    public void newStage(String filename, IController controller){
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource(filename));
+            AnchorPane anchorPane = (AnchorPane) loader.load();
+            controller = new BestellingController();
+            controller.setAnchorpane(anchorPane);
+            controller.setLayout();
+            Stage stage = new Stage();
+            stage.setTitle("Nieuwe Bestelling");
+            stage.setScene(new Scene(anchorPane));
+            stage.show();
+        }
+        catch (IOException e){
+            System.out.println(e);
+        }
     }
 }

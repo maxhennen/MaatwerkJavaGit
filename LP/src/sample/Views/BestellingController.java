@@ -29,12 +29,12 @@ import static javafx.scene.text.FontWeight.BOLD;
 /**
  * Created by maxhe on 16-5-2017.
  */
-public class BestellingController {
+public class BestellingController extends IController {
     private PizzaUIRepo PizzaRepo;
     private IngredientenUIRepo IngredientenRepo;
     private OverigeUIRepo OverigeRepo;
     private BestellingUIRepo BestellingRepo = new BestellingUIRepo(new Bestelling());
-
+    public void setAnchorpane(AnchorPane anchorpane){AnchorPane = anchorpane;}
     private ArrayList<Products> Producten = new ArrayList<>();
     private ArrayList<Ingredienten> Ingredienten = new ArrayList<>();
 
