@@ -1,5 +1,6 @@
 package sample.ViewModel;
 
+import com.sun.org.apache.regexp.internal.RE;
 import sample.DomainClasses.Ingredienten;
 import sample.DomainClasses.Pizza;
 import sample.Interfaces.IPizzaUI;
@@ -19,5 +20,6 @@ public class PizzaUIRepo {
         return Context.setComboBoxStandaarPizza();
     }
 
-
+    public ArrayList<Ingredienten> IngredientenBijPizza(int id){return Context.IngredientenBijPizza(id);}
+    public void UpdatePizza(int id, String naam, float formaat, String vorm, boolean gluten){Context.UpdatePizza(id, naam,formaat,vorm,gluten);}
 }

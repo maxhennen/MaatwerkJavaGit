@@ -114,6 +114,23 @@ public class Pizza extends Products implements IPizzaUI {
         return pizzas;
     }
 
+    public ArrayList<Ingredienten> IngredientenBijPizza(int id){
+        PizzaRepo = new PizzaRepository(new PizzaSQLContext());
+        return PizzaRepo.IngredietenBijPizza(id);
+    }
+
+    public void UpdatePizza(int id, String naam, float formaat, String vorm, boolean gluten){
+        Pizza pizza = new Pizza();
+        pizza.setID(id);
+        pizza.setNaam(naam);
+        pizza.setFormaat(formaat);
+        pizza.setVorm(Vorm.valueOf(vorm));
+        pizza.setGluten(gluten);
+
+        PizzaRepo = new PizzaRepository(new PizzaSQLContext());
+        PizzaRepo.UpdatePizza(pizza);
+    }
+
     public String ToString(){
         return getID() + " : " + getNaam() + " - " + getFormaat() + " - " + afrondenVerkoopprijs(getVerkoopPrijs());
     }

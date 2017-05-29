@@ -23,4 +23,6 @@ public class PizzaRepository {
         return Context.IngredientenBijPizza(id);
     }
 
+    public void UpdatePizza(Pizza pizza){Context.UpdatePizza(pizza);}
+
 }

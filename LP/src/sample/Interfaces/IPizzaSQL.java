@@ -11,4 +11,5 @@ import java.util.ArrayList;
 public interface IPizzaSQL {
     public ArrayList<Pizza> AlleStandaardPizzas();
     public ArrayList<Ingredienten> IngredientenBijPizza(int id);
+    public void UpdatePizza(Pizza pizza);
 }

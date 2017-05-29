@@ -40,6 +40,12 @@ public class Controller extends IController {
         btnVeranderen.setLayoutX(0);
         btnVeranderen.setLayoutY(100);
         btnVeranderen.setText("Verander Product");
+        btnVeranderen.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                newStage("Producten.fxml",new ProductenController());
+            }
+        });
         AnchorPane.getChildren().add(btnVeranderen);
 
         javafx.scene.control.Button btnWinstOmzet = new javafx.scene.control.Button();
@@ -54,11 +60,10 @@ public class Controller extends IController {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource(filename));
             AnchorPane anchorPane = (AnchorPane) loader.load();
-            controller = new BestellingController();
+            loader.setController(controller);
             controller.setAnchorpane(anchorPane);
             controller.setLayout();
             Stage stage = new Stage();
-            stage.setTitle("Nieuwe Bestelling");
             stage.setScene(new Scene(anchorPane));
             stage.show();
         }

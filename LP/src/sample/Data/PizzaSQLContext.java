@@ -79,4 +79,21 @@ public class PizzaSQLContext extends Database implements IPizzaSQL{
             return null;
         }
     }
+
+    public void UpdatePizza(Pizza pizza){
+        try {
+            getConnection();
+            String query = "UPDATE Pizza SET Naam = ?, Formaat = ?, Vorm = ?, Gluten = ? WHERE PizzaID = ?;";
+            Prep = Conn.prepareStatement(query);
+            Prep.setString(1,pizza.getNaam());
+            Prep.setFloat(2,pizza.getFormaat());
+            Prep.setString(3,pizza.getVorm().toString());
+            Prep.setBoolean(4,pizza.getGluten());
+            Prep.setInt(5,pizza.getID());
+            Prep.executeUpdate();
+        }
+        catch (SQLException e){
+            e.printStackTrace();
+        }
+    }
 }
