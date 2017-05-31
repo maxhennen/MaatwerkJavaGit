@@ -11,5 +11,5 @@ import java.util.ArrayList;
 public interface IPizzaUI {
     public ArrayList<Pizza> setComboBoxStandaarPizza();
     public ArrayList<Ingredienten> IngredientenBijPizza( int id);
-    public void UpdatePizza(int id, String naam, float formaat, String vorm, boolean gluten);
+    public void UpdatePizza(int id, String naam, float formaat, String vorm, boolean gluten,ArrayList<Ingredienten> ingredienten);
 }

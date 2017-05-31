@@ -21,5 +21,6 @@ public class PizzaUIRepo {
     }
 
     public ArrayList<Ingredienten> IngredientenBijPizza(int id){return Context.IngredientenBijPizza(id);}
-    public void UpdatePizza(int id, String naam, float formaat, String vorm, boolean gluten){Context.UpdatePizza(id, naam,formaat,vorm,gluten);}
+    public void UpdatePizza(int id, String naam, float formaat, String vorm, boolean gluten,ArrayList<Ingredienten> ingredienten)
+    {Context.UpdatePizza(id, naam,formaat,vorm,gluten,ingredienten);}
 }

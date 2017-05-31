@@ -5,6 +5,7 @@ import sample.DomainClasses.Ingredienten;
 import sample.DomainClasses.Pizza;
 import sample.Enums.Vorm;
 import sample.Interfaces.IPizzaSQL;
+import sun.dc.pr.PRError;
 
 import javax.print.DocFlavor;
 import java.net.ConnectException;
@@ -32,10 +33,10 @@ public class PizzaSQLContext extends Database implements IPizzaSQL{
 
                 Pizza pizza = new Pizza();
                 pizza.setID(Results.getInt("PizzaID"));
-                pizza.setNaam(Results.getString("Naam"));
+                pizza.setNaam(VerwijderSpaties(Results.getString("Naam")));
                 pizza.setFormaat(Results.getInt("Formaat"));
-                pizza.setVorm(Vorm.valueOf(Results.getString("Vorm")));
-                pizza.setSoort(Results.getString("Soort"));
+                pizza.setVorm(Vorm.valueOf(VerwijderSpaties(Results.getString("Vorm"))));
+                pizza.setSoort(VerwijderSpaties(Results.getString("Soort")));
                 pizza.setGluten(Results.getBoolean("Gluten"));
 
                 pizzas.add(pizza);
@@ -71,6 +72,8 @@ public class PizzaSQLContext extends Database implements IPizzaSQL{
 
                 Ingredienten.add(ingredient);
             }
+
+
             Conn.close();
             return Ingredienten;
         }
@@ -84,16 +87,37 @@ public class PizzaSQLContext extends Database implements IPizzaSQL{
         try {
             getConnection();
             String query = "UPDATE Pizza SET Naam = ?, Formaat = ?, Vorm = ?, Gluten = ? WHERE PizzaID = ?;";
+
+            String vorm = pizza.getVorm().toString();
+
             Prep = Conn.prepareStatement(query);
             Prep.setString(1,pizza.getNaam());
             Prep.setFloat(2,pizza.getFormaat());
-            Prep.setString(3,pizza.getVorm().toString());
+            Prep.setString(3,vorm);
             Prep.setBoolean(4,pizza.getGluten());
             Prep.setInt(5,pizza.getID());
+            Prep.execute();
+
+            String queryDelete = "DELETE FROM PizzaIngredienten WHERE PizzaID = ?;";
+            Prep = Conn.prepareStatement(queryDelete);
+            Prep.setInt(1,pizza.getID());
             Prep.executeUpdate();
+
+            for (Ingredienten i: pizza.getIngredienten()) {
+                String queryInsert = "insert into PizzaIngredienten(PizzaID,IngredientenID)values(?,?);";
+                Prep = Conn.prepareStatement(queryInsert);
+                Prep.setInt(1,pizza.getID());
+                Prep.setInt(2,i.getID());
+                Prep.executeUpdate();
+            }
         }
         catch (SQLException e){
             e.printStackTrace();
         }
+    }
+
+    public String VerwijderSpaties(String string){
+        String[] verwijder = string.split(" ");
+        return verwijder[0];
     }
 }

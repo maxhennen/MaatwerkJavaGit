@@ -18,6 +18,5 @@ public class Database {
         catch (Exception e){
             e.printStackTrace();
         }
-
     }
 }

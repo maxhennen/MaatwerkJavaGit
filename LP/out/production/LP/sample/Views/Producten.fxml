@@ -6,6 +6,4 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane xmlns="http://javafx.com/javafx">
-
-</AnchorPane>
+<AnchorPane prefHeight="901.0" prefWidth="1255.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" />

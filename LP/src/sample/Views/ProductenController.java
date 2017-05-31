@@ -19,6 +19,7 @@ import sample.ViewModel.OverigeUIRepo;
 import sample.ViewModel.PizzaUIRepo;
 
 import javax.print.DocFlavor;
+import javax.swing.*;
 import java.util.ArrayList;
 
 /**
@@ -52,6 +53,9 @@ public class ProductenController extends IController {
     private Button btnOverigOpslaan;
     private ListView lstIngredienten;
     private TextField tfPizzaFormaat;
+    private ComboBox cbPizzaIngredienten;
+    private Button btnIngredientToevoegen;
+    private Button btnIngredientVerwijderen;
 
     private PizzaUIRepo PizzaRepo;
     private IngredientenUIRepo IngredientenRepo;
@@ -78,7 +82,7 @@ public class ProductenController extends IController {
             @Override
             public void changed(ObservableValue observableValue, Object o, Object t1) {
                 wijzigProduct(StringToProduct(cbIngredienten.getSelectionModel().getSelectedItem().toString(),"Ingredienten"));
-                getIDs(null,cbIngredienten.getSelectionModel().getSelectedItem().toString(),null);
+                getIDs(cbIngredienten.getSelectionModel().getSelectedItem().toString(),"Ingredient");
             }
         });
         AnchorPane.getChildren().add(cbIngredienten);
@@ -153,8 +157,9 @@ public class ProductenController extends IController {
         cbPizza.valueProperty().addListener(new ChangeListener() {
             @Override
             public void changed(ObservableValue observableValue, Object o, Object t1) {
+                lstIngredienten.getItems().clear();
                 wijzigProduct(StringToProduct(cbPizza.getSelectionModel().getSelectedItem().toString(),"Pizza"));
-                getIDs(cbPizza.getSelectionModel().getSelectedItem().toString(),null,null);
+                getIDs(cbPizza.getSelectionModel().getSelectedItem().toString(),"Pizza");
             }
         });
         AnchorPane.getChildren().add(cbPizza);
@@ -194,16 +199,52 @@ public class ProductenController extends IController {
         cbPizzaGluten.getItems().add("Nee");
         AnchorPane.getChildren().add(cbPizzaGluten);
 
+        cbPizzaIngredienten = new ComboBox();
+        cbPizzaIngredienten.setLayoutY(334);
+        cbPizzaIngredienten.setLayoutX(252);
+        cbPizzaIngredienten.setPrefWidth(212);
+        cbPizzaIngredienten.setPrefHeight(25);
+        cbPizzaIngredienten.setPromptText("Ingredienten");
+        AnchorPane.getChildren().add(cbPizzaIngredienten);
+
+        btnIngredientToevoegen = new Button();
+        btnIngredientToevoegen.setLayoutY(384);
+        btnIngredientToevoegen.setLayoutX(252);
+        btnIngredientToevoegen.setPrefWidth(100);
+        btnIngredientToevoegen.setPrefHeight(27);
+        btnIngredientToevoegen.setText("Toevoegen");
+        btnIngredientToevoegen.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                ingredientToevoegen(cbPizzaIngredienten.getSelectionModel().getSelectedItem().toString());
+            }
+        });
+        AnchorPane.getChildren().add(btnIngredientToevoegen);
+
+        btnIngredientVerwijderen = new Button();
+        btnIngredientVerwijderen.setLayoutY(384);
+        btnIngredientVerwijderen.setLayoutX(352);
+        btnIngredientVerwijderen.setPrefHeight(27);
+        btnIngredientVerwijderen.setPrefWidth(100);
+        btnIngredientVerwijderen.setText("Verwijderen");
+        btnIngredientVerwijderen.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                lstIngredienten.getItems().remove(lstIngredienten.getSelectionModel().getSelectedItem());
+            }
+        });
+        AnchorPane.getChildren().add(btnIngredientVerwijderen);
+
         lstIngredienten = new ListView();
-        lstIngredienten.setLayoutY(332);
+        lstIngredienten.setLayoutY(432);
         lstIngredienten.setLayoutX(252);
-        lstIngredienten.setPrefHeight(100);
+        lstIngredienten.setPrefHeight(150);
         lstIngredienten.setPrefWidth(200);
         AnchorPane.getChildren().add(lstIngredienten);
 
         btnPizzaWijzigen = new Button();
         btnPizzaWijzigen.setLayoutX(252);
-        btnPizzaWijzigen.setLayoutY(442);
+        btnPizzaWijzigen.setLayoutY(592);
         btnPizzaWijzigen.setPrefWidth(100);
         btnPizzaWijzigen.setPrefHeight(27);
         btnPizzaWijzigen.setText("Wijzigen");
@@ -216,7 +257,7 @@ public class ProductenController extends IController {
         AnchorPane.getChildren().add(btnPizzaWijzigen);
 
         btnPizzaOpslaan = new Button();
-        btnPizzaOpslaan.setLayoutY(442);
+        btnPizzaOpslaan.setLayoutY(592);
         btnPizzaOpslaan.setLayoutX(352);
         btnPizzaOpslaan.setPrefHeight(27);
         btnPizzaOpslaan.setPrefWidth(100);
@@ -233,7 +274,7 @@ public class ProductenController extends IController {
             @Override
             public void changed(ObservableValue observableValue, Object o, Object t1) {
                 wijzigProduct(StringToProduct(cbOverig.getSelectionModel().getSelectedItem().toString(),"Overige"));
-                getIDs(null,null,cbOverig.getSelectionModel().getSelectedItem().toString());
+                getIDs(cbOverig.getSelectionModel().getSelectedItem().toString(),"Overig");
             }
         });
         AnchorPane.getChildren().add(cbOverig);
@@ -314,6 +355,10 @@ public class ProductenController extends IController {
             cbOverig.getItems().add(o.ToString());
             Overigen.add(o);
         }
+
+        for (Ingredienten i: Ingredienten){
+            cbPizzaIngredienten.getItems().add(i.ToString());
+        }
     }
 
     public void wijzigProduct(Products product){
@@ -325,7 +370,8 @@ public class ProductenController extends IController {
             cbPizzaVorm.setValue(((Pizza) product).getVorm());
             cbPizzaGluten.setValue(boolToString(((Pizza) product).getGluten()));
             tfPizzaFormaat.setText(String.valueOf(((Pizza) product).getFormaat()));
-            for (Ingredienten i:PizzaRepo.IngredientenBijPizza(product.getID())){
+
+            for (Ingredienten i:PizzaRepo.IngredientenBijPizza(product.getID())) {
                 lstIngredienten.getItems().add(i.ToString());
             }
         }
@@ -393,52 +439,51 @@ public class ProductenController extends IController {
         }
     }
 
-    public void Update(String product){
-        if(product.equals("Pizza")){
+    public void Update(String product) {
+        if (product.equals("Pizza")) {
             PizzaRepo = new PizzaUIRepo(new Pizza());
 
             String naam = tfPizzaNaam.getText();
             float formaat = Float.parseFloat(tfPizzaFormaat.getText());
-            String vorm =  cbPizzaVorm.getSelectionModel().getSelectedItem().toString();
-            boolean gluten =  StringtoBool(cbPizzaGluten.getSelectionModel().getSelectedItem().toString());
+            String vorm = cbPizzaVorm.getSelectionModel().getSelectedItem().toString();
+            boolean gluten = StringtoBool(cbPizzaGluten.getSelectionModel().getSelectedItem().toString());
+            ArrayList<Ingredienten> ingredienten = new ArrayList<>();
+            for (Object s : lstIngredienten.getItems()) {
+                String string = (String) s;
+                String[] getID = string.split(" :");
 
-            PizzaRepo.UpdatePizza(PizzaID, naam,formaat,vorm,gluten);
+                for (Ingredienten i : Ingredienten) {
+                    if (i.getID() == Integer.parseInt(getID[0])) {
+                        ingredienten.add(i);
+                    }
+                }
+            }
+            PizzaRepo.UpdatePizza(PizzaID, naam, formaat, vorm, gluten,ingredienten);
+            JOptionPane.showMessageDialog(null,"Product is gewijzigd");
         }
 
-        else if(product.equals("Ingredient")){
-            IngredientenRepo = new IngredientenUIRepo(new Ingredienten());
+        else if (product.equals("Ingredient")) {
+                IngredientenRepo = new IngredientenUIRepo(new Ingredienten());
+                String naam = tfIngredientenNaam.getText();
+            }
+        }
 
-            String naam = tfIngredientenNaam.getText();
-
+    public void getIDs(String product, String soort){
+        String getID[] = product.split(" :");
+        switch (soort){
+            case "Pizza": PizzaID = Integer.parseInt(getID[0]);
+            case "Overig" : OverigID = Integer.parseInt(getID[0]);
+            case "Ingredient" : IngredientID = Integer.parseInt(getID[0]);
+            default:
         }
     }
 
-    public void getIDs(String pizza, String ingredient, String overig){
-        if(pizza != null) {
-            String[] pizzaID = pizza.split(" :");
-            PizzaID = Integer.parseInt(pizzaID[0]);
+    public void ingredientToevoegen(String ingredient){
+        try {
+            lstIngredienten.getItems().add(ingredient);
         }
-
-        else if (pizza == null){
-            PizzaID = 0;
-        }
-
-        if(ingredient != null) {
-            String[] ingredientID = ingredient.split(" :");
-            IngredientID = Integer.parseInt(ingredientID[0]);
-        }
-
-        else if (ingredient == null){
-            IngredientID = 0;
-        }
-
-        if(overig != null) {
-            String[] overigID = overig.split(" :");
-            OverigID = Integer.parseInt(overigID[0]);
-        }
-
-        else if(overig == null){
-            OverigID = 0;
+        catch (NullPointerException e){
+            JOptionPane.showMessageDialog(null,"Geen ingredient geselecteerd");
         }
     }
 }
