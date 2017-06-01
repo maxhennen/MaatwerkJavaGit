@@ -10,6 +10,7 @@ import java.util.ArrayList;
  */
 public class IngredientenRepository {
     private IIngredientenSQL Context;
+
     public IngredientenRepository(IIngredientenSQL context){
         Context = context;
     }
@@ -17,4 +18,6 @@ public class IngredientenRepository {
     public ArrayList<Ingredienten> AlleIngredienten(){
         return Context.AlleIngredienten();
     }
+
+    public void updateIngredient(Ingredienten ingredient){Context.updateIngredient(ingredient);}
 }

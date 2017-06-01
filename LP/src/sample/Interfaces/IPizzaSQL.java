@@ -9,7 +9,8 @@ import java.util.ArrayList;
  * Created by maxhe on 17-5-2017.
  */
 public interface IPizzaSQL {
-    public ArrayList<Pizza> AlleStandaardPizzas();
-    public ArrayList<Ingredienten> IngredientenBijPizza(int id);
-    public void UpdatePizza(Pizza pizza);
+   ArrayList<Pizza> AlleStandaardPizzas();
+   ArrayList<Ingredienten> IngredientenBijPizza(int id);
+   void UpdatePizza(Pizza pizza);
+   void OpslaanPizza(Pizza pizza);
 }

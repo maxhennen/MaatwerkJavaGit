@@ -17,4 +17,8 @@ public class IngredientenUIRepo {
     public ArrayList<Ingredienten> AlleIngredienten(){
         return Context.AlleIngredienten();
     }
+
+    public void updateIngredient(int id,String naam, float inkoop,float verkoop,boolean halal, boolean vega){
+        Context.updateIngredient(id,naam,inkoop,verkoop,halal,vega);
+    }
 }

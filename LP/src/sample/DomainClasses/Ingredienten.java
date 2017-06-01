@@ -30,6 +30,18 @@ public class Ingredienten extends Products implements IIngredientenUI {
         return IngredientenRepo.AlleIngredienten();
     }
 
+    public void updateIngredient(int id, String naam, float inkoop,float verkoop,boolean halal, boolean vega ){
+        Ingredienten ingredient = new Ingredienten();
+        ingredient.setID(id);
+        ingredient.setNaam(naam);
+        ingredient.setInkoop(inkoop);
+        ingredient.setVerkoopPrijs(verkoop);
+        ingredient.setHalal(halal);
+        ingredient.setVega(vega);
+
+        IngredientenRepo = new IngredientenRepository(new IngredientenSQLContext());
+        IngredientenRepo.updateIngredient(ingredient);
+    }
 
     public String ToString(){
         return getID() + " : " + getNaam() + " - " + afrondenVerkoopprijs(getVerkoopPrijs()*100);

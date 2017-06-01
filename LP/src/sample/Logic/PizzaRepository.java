@@ -1,5 +1,6 @@
 package sample.Logic;
 
+import org.omg.CORBA.PUBLIC_MEMBER;
 import sample.DomainClasses.Ingredienten;
 import sample.DomainClasses.Pizza;
 import sample.Interfaces.IPizzaSQL;
@@ -25,4 +26,5 @@ public class PizzaRepository {
 
     public void UpdatePizza(Pizza pizza){Context.UpdatePizza(pizza);}
 
+    public void OpslaanPizza(Pizza pizza){Context.OpslaanPizza(pizza);}
 }

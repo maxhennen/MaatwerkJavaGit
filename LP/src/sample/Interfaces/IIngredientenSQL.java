@@ -8,5 +8,6 @@ import java.util.ArrayList;
  * Created by maxhe on 17-5-2017.
  */
 public interface IIngredientenSQL {
-    public ArrayList<Ingredienten> AlleIngredienten();
+    ArrayList<Ingredienten> AlleIngredienten();
+    void updateIngredient(Ingredienten ingredient);
 }
