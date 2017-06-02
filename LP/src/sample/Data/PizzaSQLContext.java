@@ -83,38 +83,6 @@ public class PizzaSQLContext extends Database implements IPizzaSQL{
         }
     }
 
-    public void UpdatePizza(Pizza pizza){
-        try {
-            getConnection();
-            String query = "UPDATE Pizza SET Naam = ?, Formaat = ?, Vorm = ?, Gluten = ? WHERE PizzaID = ?;";
-
-            String vorm = pizza.getVorm().toString();
-
-            Prep = Conn.prepareStatement(query);
-            Prep.setString(1,pizza.getNaam());
-            Prep.setFloat(2,pizza.getFormaat());
-            Prep.setString(3,vorm);
-            Prep.setBoolean(4,pizza.getGluten());
-            Prep.setInt(5,pizza.getID());
-            Prep.execute();
-
-            String queryDelete = "DELETE FROM PizzaIngredienten WHERE PizzaID = ?;";
-            Prep = Conn.prepareStatement(queryDelete);
-            Prep.setInt(1,pizza.getID());
-            Prep.executeUpdate();
-
-            for (Ingredienten i: pizza.getIngredienten()) {
-                String queryInsert = "insert into PizzaIngredienten(PizzaID,IngredientenID)values(?,?);";
-                Prep = Conn.prepareStatement(queryInsert);
-                Prep.setInt(1,pizza.getID());
-                Prep.setInt(2,i.getID());
-                Prep.executeUpdate();
-            }
-        }
-        catch (SQLException e){
-            e.printStackTrace();
-        }
-    }
 
     public void OpslaanPizza(Pizza pizza){
         try {

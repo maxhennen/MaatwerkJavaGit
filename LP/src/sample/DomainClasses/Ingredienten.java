@@ -40,7 +40,25 @@ public class Ingredienten extends Products implements IIngredientenUI {
         ingredient.setVega(vega);
 
         IngredientenRepo = new IngredientenRepository(new IngredientenSQLContext());
-        IngredientenRepo.updateIngredient(ingredient);
+    }
+
+    public void opslaanIngredient(String naam, float inkoop,float verkoop,boolean halal, boolean vega){
+        Ingredienten ingredient = new Ingredienten();
+        ingredient.setNaam(naam);
+        ingredient.setInkoop(inkoop);
+        ingredient.setVerkoopPrijs(verkoop);
+        ingredient.setHalal(halal);
+        ingredient.setVega(vega);
+
+        IngredientenRepo = new IngredientenRepository(new IngredientenSQLContext());
+    }
+
+    public void opslaan(Products product){
+
+    }
+
+    public void update(Products product){
+
     }
 
     public String ToString(){

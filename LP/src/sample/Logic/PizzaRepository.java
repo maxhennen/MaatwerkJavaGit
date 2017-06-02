@@ -23,8 +23,4 @@ public class PizzaRepository {
     public ArrayList<Ingredienten> IngredietenBijPizza(int id){
         return Context.IngredientenBijPizza(id);
     }
-
-    public void UpdatePizza(Pizza pizza){Context.UpdatePizza(pizza);}
-
-    public void OpslaanPizza(Pizza pizza){Context.OpslaanPizza(pizza);}
 }

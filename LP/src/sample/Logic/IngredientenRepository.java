@@ -18,6 +18,4 @@ public class IngredientenRepository {
     public ArrayList<Ingredienten> AlleIngredienten(){
         return Context.AlleIngredienten();
     }
-
-    public void updateIngredient(Ingredienten ingredient){Context.updateIngredient(ingredient);}
-}
+    }

@@ -27,6 +27,25 @@ public class OverigeProducten extends Products implements IOverigeProductenUI{
         return OverigeRepo.AlleOverige();
     }
 
+    public void updateOverig(int id, String naam, float inkoop, float verkoop, boolean alcohol){
+        OverigeProducten overig = new OverigeProducten();
+        overig.setID(id);
+        overig.setNaam(naam);
+        overig.setInkoop(inkoop);
+        overig.setVerkoopPrijs(verkoop);
+        overig.setAlcohol(alcohol);
+
+        OverigeRepo = new OverigeProductenRepository(new OverigeProductenSQLContext());
+    }
+
+    public void opslaan(Products product){
+
+    }
+
+    public void update(Products product){
+
+    }
+
     public String ToString(){
         return getID() + " : " + getNaam() + " - " + afrondenVerkoopprijs(getVerkoopPrijs()*100);
     }

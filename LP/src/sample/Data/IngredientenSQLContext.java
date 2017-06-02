@@ -44,17 +44,16 @@ public class IngredientenSQLContext extends Database implements IIngredientenSQL
         }
     }
 
-    public void updateIngredient(Ingredienten ingredient){
-        try {
+    public void opslaanIngredient(Ingredienten ingredient){
+        try{
             getConnection();
-            String query = "UPDATE Ingredienten SET Naam = ?,Inkoop = ?, Verkoop = ?,Veganistisch = ?,Halal = ? WHERE IngredientenID = ? ;";
+            String query = "INSERT INTO Ingredienten(Naam,Inkoop,Verkoop,Veganistisch,Halal)Values(?,?,?,?,?);";
             Prep = Conn.prepareStatement(query);
             Prep.setString(1,ingredient.getNaam());
             Prep.setFloat(2,ingredient.getInkoop());
             Prep.setFloat(3,ingredient.getVerkoopPrijs());
-            Prep.setBoolean(4,ingredient.getHalal());
-            Prep.setBoolean(5,ingredient.getVega());
-            Prep.setInt(6,ingredient.getID());
+            Prep.setBoolean(4,ingredient.getVega());
+            Prep.setBoolean(5,ingredient.getHalal());
             Prep.executeUpdate();
         }
         catch (SQLException e){

@@ -18,4 +18,7 @@ public class OverigeUIRepo {
     public ArrayList<OverigeProducten> AlleOverige(){
         return Context.AlleOverige();
     }
+
+    public void updateOverig(int id, String naam, float inkoop, float verkoop, boolean alcohol){Context.updateOverig(id, naam,inkoop,verkoop,alcohol);}
+
 }

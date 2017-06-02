@@ -21,6 +21,7 @@ import sun.plugin.com.AmbientProperty;
 import javax.print.DocFlavor;
 import javax.swing.text.html.*;
 
+import java.io.PipedInputStream;
 import java.text.NumberFormat;
 import java.util.ArrayList;
 
@@ -319,6 +320,9 @@ public class BestellingController extends IController {
         }
 
         cbVormBodem.setItems(FXCollections.observableArrayList(Vorm.values()));
+
+        cbOphalenBezorgen.getItems().add("Ophalen");
+        cbOphalenBezorgen.getItems().add("Bezorgen");
     }
 
     public void setFormaatFields(String vorm){
@@ -343,10 +347,10 @@ public class BestellingController extends IController {
 
     public void pizaToevoegen(String product){
         try {
-            String productID[] = product.split(" :");
             PizzaRepo = new PizzaUIRepo(new Pizza());
+
             for (Pizza p : PizzaRepo.setComboBoxStandaardPizza()) {
-                if (p.getID() == Integer.parseInt(productID[0])) {
+                if (p.ToString().equals(product)) {
                     Producten.add(p);
                     lstProducten.getItems().add(p.ToString());
                     BestellingRepo.productToevoegen(p);
@@ -360,11 +364,10 @@ public class BestellingController extends IController {
 
     public void overigeToevoegen(String product){
         try {
-            String productID[] = product.split(" :");
             OverigeRepo = new OverigeUIRepo(new OverigeProducten());
 
             for (OverigeProducten o : OverigeRepo.AlleOverige()) {
-                if (o.getID() == Integer.parseInt(productID[0])) {
+                if (o.ToString().equals(product)) {
                     Producten.add(o);
                     lstProducten.getItems().add(o.ToString());
                     BestellingRepo.productToevoegen(o);
@@ -378,11 +381,10 @@ public class BestellingController extends IController {
 
     public void ingredientenToevoegen(String ingredient){
         try {
-            String productID[] = ingredient.split(" :");
             IngredientenRepo = new IngredientenUIRepo(new Ingredienten());
 
             for(Ingredienten I: IngredientenRepo.AlleIngredienten()){
-                if(I.getID() == Integer.parseInt(productID[0])){
+                if(I.ToString().equals(ingredient)){
                     Ingredienten.add(I);
                     lstIngredienten.getItems().add(I.ToString());
                 }
@@ -421,7 +423,7 @@ public class BestellingController extends IController {
         ObservableList<String> lstData;
         lstData = lstIngredienten.getItems();
 
-        for (String S:lstData) {
+        for (String S: lstData) {
             String[] getID = S.split(" :");
             String[] overig = getID[1].split(" - ");
             String[] euroteken = overig[1].split("€");

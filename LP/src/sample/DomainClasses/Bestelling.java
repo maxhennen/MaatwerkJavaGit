@@ -94,15 +94,13 @@ public class Bestelling implements IBestellingUI {
                 bw.write(s);
                 bw.write(breakline);
             }
-                bw.close();
 
-
+            bw.close();
 
         }
         catch (Exception e){
             e.printStackTrace();
         }
-
     }
 
     public float PrijsExclBTW(Products product){

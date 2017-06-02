@@ -21,4 +21,8 @@ public class IngredientenUIRepo {
     public void updateIngredient(int id,String naam, float inkoop,float verkoop,boolean halal, boolean vega){
         Context.updateIngredient(id,naam,inkoop,verkoop,halal,vega);
     }
+
+    public void opslaanIngredient(String naam, float inkoop,float verkoop,boolean halal, boolean vega){
+        Context.opslaanIngredient(naam,inkoop,verkoop,halal,vega);
+    }
 }

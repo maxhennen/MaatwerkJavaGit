@@ -128,9 +128,9 @@ public class Pizza extends Products implements IPizzaUI {
         pizza.setGluten(gluten);
         pizza.setIngredienten(ingredienten);
 
-        PizzaRepo = new PizzaRepository(new PizzaSQLContext());
-        PizzaRepo.UpdatePizza(pizza);
+        update(pizza);
     }
+
 
     public void OpslaanPizza(String naam, float formaat, String vorm, boolean gluten,ArrayList<Ingredienten> ingredienten){
         Pizza pizza = new Pizza();
@@ -140,8 +140,15 @@ public class Pizza extends Products implements IPizzaUI {
         pizza.setGluten(gluten);
         pizza.setIngredienten(ingredienten);
 
-        PizzaRepo = new PizzaRepository(new PizzaSQLContext());
-        PizzaRepo.OpslaanPizza(pizza);
+         opslaan(pizza);
+    }
+
+    public void update(Products product){
+        setRepo().update(product);
+    }
+
+    public void opslaan(Products product){
+        setRepo().opslaan(product);
     }
 
     public String ToString(){

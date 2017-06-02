@@ -167,6 +167,12 @@ public class ProductenController extends IController {
         btnIngredientenOpslaan.setPrefHeight(27);
         btnIngredientenOpslaan.setPrefWidth(100);
         btnIngredientenOpslaan.setText("Opslaan");
+        btnIngredientenOpslaan.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                opslaanProduct("Ingredient");
+            }
+        });
         AnchorPane.getChildren().add(btnIngredientenOpslaan);
 
         cbPizza = new ComboBox();
@@ -347,6 +353,12 @@ public class ProductenController extends IController {
         btnOverigWijzigen.setPrefWidth(100);
         btnOverigWijzigen.setPrefHeight(27);
         btnOverigWijzigen.setText("Wijzigen");
+        btnOverigWijzigen.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                Update("Overig");
+            }
+        });
         AnchorPane.getChildren().add(btnOverigWijzigen);
 
         btnOverigOpslaan = new Button();
@@ -468,6 +480,7 @@ public class ProductenController extends IController {
     }
 
     public void Update(String product) {
+
         if (product.equals("Pizza")) {
             PizzaRepo = new PizzaUIRepo(new Pizza());
 
@@ -488,10 +501,16 @@ public class ProductenController extends IController {
                 boolean vega = StringtoBool(cbIngredientenVega.getPromptText());
 
                 IngredientenRepo.updateIngredient(IngredientID,naam,inkoop,verkoop,halal,vega);
-            }
+        }
+
         else if(product.equals("Overig"))
         {
-
+            String naam = tfOverigNaam.getText();
+            float inkoop = Float.parseFloat(tfOverigInkoop.getText());
+            float verkoop = Float.parseFloat(tfOverigVerkoop.getText());
+            boolean alcohol = StringtoBool(cbOverigAlcohol.getPromptText());
+            OverigeRepo = new OverigeUIRepo(new OverigeProducten());
+            OverigeRepo.updateOverig(OverigID,naam,inkoop,verkoop,alcohol);
         }
         JOptionPane.showMessageDialog(null,"Product is gewijzigd");
     }
@@ -511,7 +530,15 @@ public class ProductenController extends IController {
 
             else if (product.equals("Ingredient")) {
                 IngredientenRepo = new IngredientenUIRepo(new Ingredienten());
+
                 String naam = tfIngredientenNaam.getText();
+                float inkoop = Float.parseFloat(tfIngredientenInkoop.getText());
+                float verkoop = Float.parseFloat(tfIngredientenVerkoop.getText());
+                boolean halal = StringtoBool(cbIngredientenHalal.getPromptText());
+                boolean vega = StringtoBool(cbIngredientenVega.getPromptText());
+
+                IngredientenRepo.opslaanIngredient(naam,inkoop,verkoop,halal,vega);
+                JOptionPane.showMessageDialog(null,"Product is opgeslagen!");
             }
         }
 

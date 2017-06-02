@@ -9,5 +9,4 @@ import java.util.ArrayList;
  */
 public interface IIngredientenSQL {
     ArrayList<Ingredienten> AlleIngredienten();
-    void updateIngredient(Ingredienten ingredient);
 }

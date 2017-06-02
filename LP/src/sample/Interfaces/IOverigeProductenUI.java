@@ -9,4 +9,5 @@ import java.util.ArrayList;
  */
 public interface IOverigeProductenUI {
     ArrayList<OverigeProducten> AlleOverige();
+    void updateOverig(int id, String naam, float inkoop, float verkoop, boolean alcohol);
 }

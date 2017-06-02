@@ -19,5 +19,4 @@ public class OverigeProductenRepository {
     public ArrayList<OverigeProducten> AlleOverige(){
         return Context.AlleOverige();
     }
-
 }

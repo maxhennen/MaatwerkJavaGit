@@ -1,5 +1,7 @@
 package sample.DomainClasses;
 
+import sample.Data.ProductenSQLContext;
+import sample.Logic.ProductenRepository;
 import sun.misc.Compare;
 
 import java.text.DecimalFormat;
@@ -22,11 +24,20 @@ public abstract class Products {
     public float getVerkoopPrijs(){return VerkoopPrijs;}
     public int getID(){return ID;}
 
+    private ProductenRepository ProductenRepository;
+    public ProductenRepository setRepo(){
+        ProductenRepository = new ProductenRepository(new ProductenSQLContext());
+        return ProductenRepository;
+    }
+
     public abstract class SortName implements Comparable<Products>{
         public int compareTo(Products x){
             return Naam.compareTo(x.Naam);
         }
     }
+
+    public abstract void update(Products product);
+    public abstract void opslaan(Products product);
 
     public abstract class SortPrice implements Comparable<Products> {
         public int compareTo(Products x) {
