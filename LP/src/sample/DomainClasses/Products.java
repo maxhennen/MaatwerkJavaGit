@@ -2,7 +2,7 @@ package sample.DomainClasses;
 
 import sample.Data.ProductenSQLContext;
 import sample.Logic.ProductenRepository;
-import sun.misc.Compare;
+
 
 import java.text.DecimalFormat;
 import java.text.NumberFormat;

@@ -12,8 +12,8 @@ public class Database {
 
     public void getConnection(){
         try{
-            Class.forName("sun.jdbc.odbc.JdbcOdbcDriver");
-            Conn = DriverManager.getConnection("jdbc:odbc:JavaLP","DESKTOP-VR2JK4O",null);
+            Class.forName("j");
+            Conn = DriverManager.getConnection("jdbc:odbc:JavaLP","DESKTOP-OBIGL5V",null);
         }
         catch (Exception e){
             e.printStackTrace();
