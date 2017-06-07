@@ -17,4 +17,6 @@ public interface IBestellingUI {
     void productToevoegen(Products product);
 
     void nieuweBestelling(int klantnummer, String naam, String adres);
+
+    String OmzetWinst(String datum);
 }

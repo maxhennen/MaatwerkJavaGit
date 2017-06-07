@@ -13,4 +13,5 @@ public interface IPizzaUI {
     ArrayList<Ingredienten> IngredientenBijPizza( int id);
     void UpdatePizza(int id, String naam, float formaat, String vorm, boolean gluten,ArrayList<Ingredienten> ingredienten);
     void OpslaanPizza(String naam, float formaat, String vorm, boolean gluten,ArrayList<Ingredienten> ingredienten);
+    void verwijderPizza(int id, String naam, float formaat, String vorm, boolean gluten,ArrayList<Ingredienten> ingredienten);
 }

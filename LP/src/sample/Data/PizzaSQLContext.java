@@ -84,25 +84,6 @@ public class PizzaSQLContext extends Database implements IPizzaSQL{
     }
 
 
-    public void OpslaanPizza(Pizza pizza){
-        try {
-            getConnection();
-            String query = "INSERT INTO Pizza(Naam,Formaat,Vorm,Soort,Gluten)Values(?,?,?,?,?);";
-            Prep = Conn.prepareStatement(query);
-
-            Prep.setString(1,pizza.getNaam());
-            Prep.setFloat(2,pizza.getFormaat());
-            Prep.setString(3,pizza.getVorm().toString());
-            Prep.setString(4,"Standaard");
-            Prep.setBoolean(5,pizza.getGluten());
-            Prep.executeUpdate();
-
-        }
-        catch (SQLException e){
-            e.printStackTrace();
-        }
-    }
-
     public String VerwijderSpaties(String string){
         String[] verwijder = string.split(" ");
         return verwijder[0];

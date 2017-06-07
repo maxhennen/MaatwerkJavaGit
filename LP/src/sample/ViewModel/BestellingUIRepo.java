@@ -29,4 +29,8 @@ public class BestellingUIRepo {
     public void nieuweBestelling(int klantnummer, String naam, String adres){
         Context.nieuweBestelling(klantnummer,naam,adres);
     }
+
+    public String OmzetWinst(String datum){
+        return Context.OmzetWinst(datum);
+    }
 }

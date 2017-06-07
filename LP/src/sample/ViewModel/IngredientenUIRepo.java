@@ -25,4 +25,8 @@ public class IngredientenUIRepo {
     public void opslaanIngredient(String naam, float inkoop,float verkoop,boolean halal, boolean vega){
         Context.opslaanIngredient(naam,inkoop,verkoop,halal,vega);
     }
+
+    public void verwijderIngredient(int id,String naam, float inkoop,float verkoop,boolean halal, boolean vega){
+        Context.verwijderIngredient(id,naam,inkoop,verkoop,halal,vega);
+    }
 }

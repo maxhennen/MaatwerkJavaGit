@@ -30,34 +30,18 @@ public abstract class Products {
         return ProductenRepository;
     }
 
-    public abstract class SortName implements Comparable<Products>{
-        public int compareTo(Products x){
-            return Naam.compareTo(x.Naam);
-        }
-    }
 
     public abstract void update(Products product);
     public abstract void opslaan(Products product);
+    public abstract void verwijder(Products product);
 
-    public abstract class SortPrice implements Comparable<Products> {
-        public int compareTo(Products x) {
-            if (VerkoopPrijs > x.VerkoopPrijs) {
-                return 1;
-            } else if (VerkoopPrijs == x.VerkoopPrijs) {
-                return 0;
-            } else if (VerkoopPrijs < x.VerkoopPrijs) {
-                return -1;
-            }
-            return 0;
-        }
-    }
 
-    public String afrondenVerkoopprijs(float verkoopPrijs){
+    public float afrondenVerkoopprijs(float verkoopPrijs){
         NumberFormat nf = NumberFormat.getNumberInstance();
         DecimalFormat df = (DecimalFormat) nf;
-        df.applyLocalizedPattern("€00.00");
+        df.applyLocalizedPattern("00.00");
         String output = df.format(verkoopPrijs);
-        return output;
+        return Float.parseFloat(output);
     }
     public abstract String ToString();
 }

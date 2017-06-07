@@ -11,4 +11,5 @@ public interface IIngredientenUI {
     ArrayList<Ingredienten> AlleIngredienten();
     void updateIngredient(int id, String naam, float inkoop,float verkoop,boolean halal, boolean vega);
     void opslaanIngredient(String naam, float inkoop,float verkoop,boolean halal, boolean vega);
+    void verwijderIngredient(int id, String naam, float inkoop,float verkoop,boolean halal, boolean vega);
 }

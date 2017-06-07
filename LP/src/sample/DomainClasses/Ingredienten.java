@@ -3,6 +3,7 @@ package sample.DomainClasses;
 import sample.Data.IngredientenSQLContext;
 import sample.Interfaces.IIngredientenUI;
 import sample.Logic.IngredientenRepository;
+import sun.dc.pr.PRError;
 
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
@@ -39,7 +40,7 @@ public class Ingredienten extends Products implements IIngredientenUI {
         ingredient.setHalal(halal);
         ingredient.setVega(vega);
 
-        IngredientenRepo = new IngredientenRepository(new IngredientenSQLContext());
+        update(ingredient);
     }
 
     public void opslaanIngredient(String naam, float inkoop,float verkoop,boolean halal, boolean vega){
@@ -50,18 +51,32 @@ public class Ingredienten extends Products implements IIngredientenUI {
         ingredient.setHalal(halal);
         ingredient.setVega(vega);
 
-        IngredientenRepo = new IngredientenRepository(new IngredientenSQLContext());
+        opslaan(ingredient);
+    }
+
+    public void verwijderIngredient(int id, String naam, float inkoop,float verkoop,boolean halal, boolean vega){
+        Ingredienten ingredient = new Ingredienten();
+        ingredient.setID(id);
+        ingredient.setNaam(naam);
+        ingredient.setInkoop(inkoop);
+        ingredient.setVerkoopPrijs(verkoop);
+        ingredient.setHalal(halal);
+        ingredient.setVega(vega);
+
+        verwijder(ingredient);
     }
 
     public void opslaan(Products product){
-
+        setRepo().opslaan(product);
     }
 
     public void update(Products product){
-
+        setRepo().update(product);
     }
 
+    public void verwijder(Products product){setRepo().verwijder(product);}
+
     public String ToString(){
-        return getID() + " : " + getNaam() + " - " + afrondenVerkoopprijs(getVerkoopPrijs()*100);
+        return getID() + " : " + getNaam() + " - €" + afrondenVerkoopprijs(getVerkoopPrijs());
     }
 }

@@ -43,21 +43,4 @@ public class IngredientenSQLContext extends Database implements IIngredientenSQL
             return null;
         }
     }
-
-    public void opslaanIngredient(Ingredienten ingredient){
-        try{
-            getConnection();
-            String query = "INSERT INTO Ingredienten(Naam,Inkoop,Verkoop,Veganistisch,Halal)Values(?,?,?,?,?);";
-            Prep = Conn.prepareStatement(query);
-            Prep.setString(1,ingredient.getNaam());
-            Prep.setFloat(2,ingredient.getInkoop());
-            Prep.setFloat(3,ingredient.getVerkoopPrijs());
-            Prep.setBoolean(4,ingredient.getVega());
-            Prep.setBoolean(5,ingredient.getHalal());
-            Prep.executeUpdate();
-        }
-        catch (SQLException e){
-            e.printStackTrace();
-        }
-    }
 }

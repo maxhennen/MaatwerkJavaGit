@@ -10,4 +10,6 @@ import java.util.ArrayList;
 public interface IOverigeProductenUI {
     ArrayList<OverigeProducten> AlleOverige();
     void updateOverig(int id, String naam, float inkoop, float verkoop, boolean alcohol);
+    void opslaanOverig(String naam, float inkoop, float verkoop, boolean alcohol);
+    void verwijderOverig(int id, String naam, float inkoop, float verkoop, boolean alcohol);
 }

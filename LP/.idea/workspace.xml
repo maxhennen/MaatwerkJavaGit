@@ -67,28 +67,18 @@
       <file leaf-file-name="Pizza.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/sample/DomainClasses/Pizza.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2919">
-              <caret line="154" column="0" lean-forward="false" selection-start-line="154" selection-start-column="0" selection-end-line="154" selection-end-column="0" />
+            <state relative-caret-position="421">
+              <caret line="114" column="22" lean-forward="false" selection-start-line="114" selection-start-column="22" selection-end-line="114" selection-end-column="22" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Products.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Products.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/sample/DomainClasses/Products.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="84">
-              <caret line="4" column="0" lean-forward="false" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ProductenController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/sample/Views/ProductenController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3822">
-              <caret line="208" column="49" lean-forward="false" selection-start-line="208" selection-start-column="49" selection-end-line="208" selection-end-column="49" />
+            <state relative-caret-position="257">
+              <caret line="33" column="4" lean-forward="false" selection-start-line="33" selection-start-column="4" selection-end-line="33" selection-end-column="4" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -96,68 +86,53 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Database.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/sample/Data/Database.java">
+      <file leaf-file-name="ProductenController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/sample/Views/ProductenController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="315">
-              <caret line="15" column="100" lean-forward="false" selection-start-line="15" selection-start-column="100" selection-end-line="15" selection-end-column="100" />
+            <state relative-caret-position="-660">
+              <caret line="189" column="44" lean-forward="false" selection-start-line="189" selection-start-column="44" selection-end-line="189" selection-end-column="44" />
+              <folding>
+                <element signature="e#7209#7388#0" expanded="true" />
+                <element signature="e#7387#7388#0" expanded="true" />
+                <element signature="e#12790#12964#0" expanded="true" />
+                <element signature="e#12963#12964#0" expanded="true" />
+                <element signature="e#15865#16038#0" expanded="true" />
+                <element signature="e#16037#16038#0" expanded="true" />
+                <element signature="e#16411#16586#0" expanded="true" />
+                <element signature="e#16585#16586#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Bestelling.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/sample/DomainClasses/Bestelling.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="404">
+              <caret line="143" column="59" lean-forward="false" selection-start-line="143" selection-start-column="59" selection-end-line="143" selection-end-column="59" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PizzaSQLContext.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/sample/Data/PizzaSQLContext.java">
+      <file leaf-file-name="IProducten.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/sample/Interfaces/IProducten.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="252">
-              <caret line="25" column="0" lean-forward="false" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
-              <folding>
-                <marker date="1496660793963" expanded="true" signature="738:786" ph="SELECT * FRO... Pizza" />
-                <marker date="1496660793963" expanded="true" signature="1812:2001" ph="SELECT i.* F... Ingredienten" />
-                <marker date="1496660793963" expanded="true" signature="2989:3055" ph="INSERT INTO Pizza... " />
-              </folding>
+            <state relative-caret-position="210">
+              <caret line="11" column="37" lean-forward="false" selection-start-line="11" selection-start-column="37" selection-end-line="11" selection-end-column="37" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PizzaRepository.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/sample/Logic/PizzaRepository.java">
+      <file leaf-file-name="ProductenRepository.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/sample/Logic/ProductenRepository.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="252">
-              <caret line="19" column="0" lean-forward="false" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+            <state relative-caret-position="357">
+              <caret line="22" column="69" lean-forward="false" selection-start-line="22" selection-start-column="69" selection-end-line="22" selection-end-column="69" />
               <folding>
-                <element signature="e#488#489#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="URLClassLoader.java" pinned="false" current-in-tab="false">
-        <entry file="jar://C:/Program Files/Java/jdk1.8.0_131/src.zip!/java/net/URLClassLoader.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="6846">
-              <caret line="380" column="0" lean-forward="false" selection-start-line="380" selection-start-column="0" selection-end-line="380" selection-end-column="0" />
-              <folding>
-                <element signature="e#0#31092#0" expanded="false" />
-                <element signature="imports" expanded="false" />
-                <element signature="e#12232#12233#0" expanded="false" />
-                <element signature="e#12263#12264#0" expanded="false" />
-                <element signature="e#12607#12608#0" expanded="false" />
-                <element signature="e#12643#12644#0" expanded="false" />
-                <element signature="e#21800#21801#0" expanded="false" />
-                <element signature="e#21875#21876#0" expanded="false" />
-                <element signature="e#23586#23587#0" expanded="false" />
-                <element signature="e#23631#23632#0" expanded="false" />
-                <element signature="e#28505#28506#0" expanded="false" />
-                <element signature="e#28596#28597#0" expanded="false" />
-                <element signature="e#29571#29572#0" expanded="false" />
-                <element signature="e#29654#29655#0" expanded="false" />
-                <element signature="e#29876#29877#0" expanded="false" />
-                <element signature="e#29928#29929#0" expanded="false" />
-                <element signature="e#29997#29998#0" expanded="false" />
-                <element signature="e#30075#30076#0" expanded="false" />
-                <element signature="e#30506#30507#0" expanded="false" />
-                <element signature="e#30538#30539#0" expanded="false" />
+                <element signature="e#335#336#0" expanded="true" />
+                <element signature="e#375#376#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -168,13 +143,7 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="294">
               <caret line="39" column="18" lean-forward="false" selection-start-line="39" selection-start-column="18" selection-end-line="39" selection-end-column="18" />
-              <folding>
-                <element signature="imports" expanded="false" />
-                <element signature="e#9463#9464#0" expanded="false" />
-                <element signature="e#9508#9509#0" expanded="false" />
-                <element signature="e#11230#11231#0" expanded="false" />
-                <element signature="e#11280#11281#0" expanded="false" />
-              </folding>
+              <folding />
             </state>
           </provider>
         </entry>
@@ -182,8 +151,8 @@
       <file leaf-file-name="OverigeProducten.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/sample/DomainClasses/OverigeProducten.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="672">
-              <caret line="38" column="0" lean-forward="false" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
+            <state relative-caret-position="446">
+              <caret line="72" column="50" lean-forward="false" selection-start-line="72" selection-start-column="50" selection-end-line="72" selection-end-column="50" />
               <folding />
             </state>
           </provider>
@@ -192,9 +161,31 @@
       <file leaf-file-name="Ingredienten.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/sample/DomainClasses/Ingredienten.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="987">
-              <caret line="53" column="0" lean-forward="false" selection-start-line="53" selection-start-column="0" selection-end-line="53" selection-end-column="0" />
+            <state relative-caret-position="467">
+              <caret line="79" column="50" lean-forward="false" selection-start-line="79" selection-start-column="50" selection-end-line="79" selection-end-column="50" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ProductenSQLContext.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/sample/Data/ProductenSQLContext.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="238">
+              <caret line="29" column="43" lean-forward="false" selection-start-line="29" selection-start-column="43" selection-end-line="29" selection-end-column="43" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <marker date="1496837453965" expanded="true" signature="597:668" ph="UPDATE Pizza... " />
+                <marker date="1496837453965" expanded="true" signature="597:686" ph="UPDATE Pizza... " />
+                <marker date="1496837453965" expanded="true" signature="1270:1368" ph="UPDATE Overi... " />
+                <marker date="1496837453965" expanded="true" signature="1897:2005" ph="UPDATE Ingre... " />
+                <marker date="1496837453965" expanded="true" signature="2782:2848" ph="INSERT INTO Pizza... " />
+                <marker date="1496837453965" expanded="true" signature="3385:3457" ph="INSERT INTO OverigeProducten... " />
+                <marker date="1496837453965" expanded="true" signature="3939:4020" ph="INSERT INTO Ingredienten... " />
+                <marker date="1496837453965" expanded="true" signature="4727:4762" ph="DELETE FROM " />
+                <marker date="1496837453965" expanded="true" signature="4853:4901" ph="DELETE FROM " />
+                <marker date="1496837453965" expanded="true" signature="4988:5037" ph="DELETE FROM " />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -235,42 +226,44 @@
         <option value="$PROJECT_DIR$/src/sample/ViewModels.java" />
         <option value="$PROJECT_DIR$/src/sample/Views/Bestelling.fxml" />
         <option value="$PROJECT_DIR$/src/sample/Interfaces/IOverigeProducten.java" />
-        <option value="$PROJECT_DIR$/src/sample/Interfaces/IBestellingSQL.java" />
-        <option value="$PROJECT_DIR$/src/sample/Logic/BestellingRepository.java" />
-        <option value="$PROJECT_DIR$/src/sample/ViewModel/BestellingUIRepo.java" />
-        <option value="$PROJECT_DIR$/src/sample/Interfaces/IBestellingUI.java" />
         <option value="$PROJECT_DIR$/src/sample/DomainClasses/Klant.java" />
-        <option value="$PROJECT_DIR$/src/sample/Data/BestellingSQLContext.java" />
         <option value="$PROJECT_DIR$/src/sample/Views/IController.java" />
         <option value="$PROJECT_DIR$/src/sample/Main.java" />
         <option value="$PROJECT_DIR$/src/sample/Views/Producten.fxml" />
-        <option value="$PROJECT_DIR$/src/sample/Views/Controller.java" />
-        <option value="$PROJECT_DIR$/src/sample/ViewModel/PizzaUIRepo.java" />
-        <option value="$PROJECT_DIR$/src/sample/Interfaces/IIngredientenUI.java" />
-        <option value="$PROJECT_DIR$/src/sample/ViewModel/IngredientenUIRepo.java" />
-        <option value="$PROJECT_DIR$/src/sample/DomainClasses/Bestelling.java" />
-        <option value="$PROJECT_DIR$/src/sample/Interfaces/IOverigeProductenUI.java" />
-        <option value="$PROJECT_DIR$/src/sample/ViewModel/OverigeUIRepo.java" />
-        <option value="$PROJECT_DIR$/src/sample/Views/ProductenController.java" />
-        <option value="$PROJECT_DIR$/src/sample/Interfaces/IPizzaUI.java" />
-        <option value="$PROJECT_DIR$/src/sample/Interfaces/IProducten.java" />
-        <option value="$PROJECT_DIR$/src/sample/Logic/ProductenRepository.java" />
         <option value="$PROJECT_DIR$/src/sample/Data/OverigeProductenSQLContext.java" />
-        <option value="$PROJECT_DIR$/src/sample/Data/PizzaSQLContext.java" />
         <option value="$PROJECT_DIR$/src/sample/Interfaces/IPizzaSQL.java" />
         <option value="$PROJECT_DIR$/src/sample/Interfaces/IIngredientenSQL.java" />
         <option value="$PROJECT_DIR$/src/sample/Interfaces/IOverigeProductenSQL.java" />
-        <option value="$PROJECT_DIR$/src/sample/Data/IngredientenSQLContext.java" />
-        <option value="$PROJECT_DIR$/src/sample/Data/ProductenSQLContext.java" />
         <option value="$PROJECT_DIR$/src/sample/Logic/OverigeProductenRepository.java" />
         <option value="$PROJECT_DIR$/src/sample/Logic/PizzaRepository.java" />
         <option value="$PROJECT_DIR$/src/sample/Logic/IngredientenRepository.java" />
-        <option value="$PROJECT_DIR$/src/sample/DomainClasses/Ingredienten.java" />
-        <option value="$PROJECT_DIR$/src/sample/DomainClasses/OverigeProducten.java" />
-        <option value="$PROJECT_DIR$/src/sample/DomainClasses/Pizza.java" />
         <option value="$PROJECT_DIR$/src/sample/Views/BestellingController.java" />
-        <option value="$PROJECT_DIR$/src/sample/DomainClasses/Products.java" />
         <option value="$PROJECT_DIR$/src/sample/Data/Database.java" />
+        <option value="$PROJECT_DIR$/src/sample/Data/PizzaSQLContext.java" />
+        <option value="$PROJECT_DIR$/src/sample/Data/IngredientenSQLContext.java" />
+        <option value="$PROJECT_DIR$/src/sample/Interfaces/IBestellingSQL.java" />
+        <option value="$PROJECT_DIR$/src/sample/Data/BestellingSQLContext.java" />
+        <option value="$PROJECT_DIR$/src/sample/Logic/BestellingRepository.java" />
+        <option value="$PROJECT_DIR$/src/sample/Interfaces/IBestellingUI.java" />
+        <option value="$PROJECT_DIR$/src/sample/ViewModel/BestellingUIRepo.java" />
+        <option value="$PROJECT_DIR$/src/sample/Views/OmzetWinst.fxml" />
+        <option value="$PROJECT_DIR$/src/sample/Views/Controller.java" />
+        <option value="$PROJECT_DIR$/src/sample/Views/OmzetWinstController.java" />
+        <option value="$PROJECT_DIR$/src/sample/Interfaces/IProducten.java" />
+        <option value="$PROJECT_DIR$/src/sample/Interfaces/IPizzaUI.java" />
+        <option value="$PROJECT_DIR$/src/sample/Interfaces/IOverigeProductenUI.java" />
+        <option value="$PROJECT_DIR$/src/sample/Interfaces/IIngredientenUI.java" />
+        <option value="$PROJECT_DIR$/src/sample/ViewModel/IngredientenUIRepo.java" />
+        <option value="$PROJECT_DIR$/src/sample/ViewModel/PizzaUIRepo.java" />
+        <option value="$PROJECT_DIR$/src/sample/ViewModel/OverigeUIRepo.java" />
+        <option value="$PROJECT_DIR$/src/sample/Logic/ProductenRepository.java" />
+        <option value="$PROJECT_DIR$/src/sample/Data/ProductenSQLContext.java" />
+        <option value="$PROJECT_DIR$/src/sample/Views/ProductenController.java" />
+        <option value="$PROJECT_DIR$/src/sample/DomainClasses/Bestelling.java" />
+        <option value="$PROJECT_DIR$/src/sample/DomainClasses/OverigeProducten.java" />
+        <option value="$PROJECT_DIR$/src/sample/DomainClasses/Ingredienten.java" />
+        <option value="$PROJECT_DIR$/src/sample/DomainClasses/Pizza.java" />
+        <option value="$PROJECT_DIR$/src/sample/DomainClasses/Products.java" />
       </list>
     </option>
   </component>
@@ -999,12 +992,12 @@
       <workItem from="1496402525326" duration="386000" />
       <workItem from="1496405875310" duration="1101000" />
       <workItem from="1496661028558" duration="747000" />
-      <workItem from="1496818351319" duration="793000" />
+      <workItem from="1496818351319" duration="12169000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="123365000" />
+    <option name="totallyTimeSpent" value="134741000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
@@ -1019,13 +1012,13 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32930845" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22502744" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2327113" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16510417" sideWeight="0.6703755" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20989583" sideWeight="0.6703755" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -1059,14 +1052,6 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/sample/Data/BestellingSQLContext.java</url>
-          <line>83</line>
-          <properties />
-          <option name="timeStamp" value="35" />
-        </line-breakpoint>
-      </breakpoints>
       <option name="time" value="82" />
     </breakpoint-manager>
     <watches-manager />
@@ -1076,41 +1061,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/sample/Enums/Vorm.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/Views/Bestelling.fxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/Interfaces/IBestellingSQL.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="147">
-          <caret line="10" column="17" lean-forward="false" selection-start-line="10" selection-start-column="17" selection-end-line="10" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/Interfaces/IBestellingUI.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="147">
-          <caret line="12" column="17" lean-forward="false" selection-start-line="12" selection-start-column="17" selection-end-line="12" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files (x86)/Java/jdk1.7.0_55/jre/lib/jfxrt.jar!/javafx/stage/Window.class" />
-    <entry file="jar://C:/Program Files (x86)/Java/jdk1.7.0_55/jre/lib/jfxrt.jar!/javafx/animation/Animation.class" />
-    <entry file="jar://C:/Program Files (x86)/Java/jdk1.7.0_55/jre/lib/jfxrt.jar!/javafx/event/ActionEvent.class" />
     <entry file="jar://C:/Program Files (x86)/Java/jdk1.7.0_55/jre/lib/jfxrt.jar!/javafx/event/Event.class" />
     <entry file="jar://C:/Program Files (x86)/Java/jdk1.7.0_55/jre/lib/jfxrt.jar!/javafx/animation/Timeline.class" />
     <entry file="jar://C:/Program Files (x86)/Java/jdk1.7.0_55/jre/lib/jfxrt.jar!/javafx/animation/KeyFrame.class" />
@@ -1119,93 +1069,14 @@
     <entry file="jar://C:/Program Files (x86)/Java/jdk1.7.0_55/jre/lib/jfxrt.jar!/javafx/scene/control/ComboBox.class" />
     <entry file="jar://C:/Program Files (x86)/Java/jdk1.7.0_55/jre/lib/jfxrt.jar!/javafx/scene/control/SelectionModel.class" />
     <entry file="jar://C:/Program Files (x86)/Java/jdk1.7.0_55/jre/lib/jfxrt.jar!/javafx/beans/property/ReadOnlyObjectWrapper.class" />
-    <entry file="file://$PROJECT_DIR$/src/sample/Interfaces/IIngredientenUI.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="12" column="94" lean-forward="true" selection-start-line="12" selection-start-column="27" selection-end-line="12" selection-end-column="94" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://C:/Program Files (x86)/Java/jdk1.7.0_55/jre/lib/jfxrt.jar!/javafx/scene/control/TextField.class" />
     <entry file="jar://C:/Program Files (x86)/Java/jdk1.7.0_55/jre/lib/jfxrt.jar!/javafx/scene/control/TextInputControl.class" />
     <entry file="jar://C:/Program Files (x86)/Java/jdk1.7.0_55/jre/lib/jfxrt.jar!/javafx/beans/property/StringPropertyBase.class" />
     <entry file="jar://C:/Program Files (x86)/Java/jdk1.7.0_55/jre/lib/jfxrt.jar!/javafx/scene/control/ComboBoxBase.class" />
-    <entry file="file://$PROJECT_DIR$/src/sample/ViewModel/IngredientenUIRepo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="25" column="0" lean-forward="false" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/sample/Views/IController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="147">
           <caret line="7" column="22" lean-forward="false" selection-start-line="7" selection-start-column="22" selection-end-line="7" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/Views/Controller.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="59" column="13" lean-forward="true" selection-start-line="59" selection-start-column="13" selection-end-line="59" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/DomainClasses/Bestelling.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="381">
-          <caret line="117" column="16" lean-forward="false" selection-start-line="117" selection-start-column="16" selection-end-line="117" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/Interfaces/IOverigeProductenUI.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="189">
-          <caret line="11" column="30" lean-forward="false" selection-start-line="11" selection-start-column="30" selection-end-line="11" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/ViewModel/OverigeUIRepo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="294">
-          <caret line="21" column="121" lean-forward="false" selection-start-line="21" selection-start-column="121" selection-end-line="21" selection-end-column="121" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/Interfaces/IProducten.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="10" column="35" lean-forward="false" selection-start-line="10" selection-start-column="35" selection-end-line="10" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/Interfaces/IPizzaUI.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="13" column="20" lean-forward="false" selection-start-line="13" selection-start-column="9" selection-end-line="13" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/Logic/ProductenRepository.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="17" column="0" lean-forward="false" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/ViewModel/PizzaUIRepo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="29" column="0" lean-forward="false" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/Data/OverigeProductenSQLContext.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="777">
-          <caret line="42" column="0" lean-forward="false" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1230,30 +1101,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/Data/IngredientenSQLContext.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="819">
-          <caret line="46" column="13" lean-forward="false" selection-start-line="46" selection-start-column="13" selection-end-line="46" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../Agenda/src/sample/Main.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="315">
           <caret line="23" column="0" lean-forward="true" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/Data/ProductenSQLContext.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="316">
-          <caret line="46" column="89" lean-forward="false" selection-start-line="46" selection-start-column="89" selection-end-line="46" selection-end-column="89" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1273,64 +1124,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/DomainClasses/Ingredienten.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="987">
-          <caret line="53" column="0" lean-forward="false" selection-start-line="53" selection-start-column="0" selection-end-line="53" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/DomainClasses/OverigeProducten.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="672">
-          <caret line="38" column="0" lean-forward="false" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://C:/Program Files (x86)/Java/jdk1.7.0_55/jre/lib/jfxrt.jar!/javafx/beans/property/ObjectPropertyBase.class" />
     <entry file="jar://C:/Program Files (x86)/Java/jdk1.7.0_55/jre/lib/jfxrt.jar!/javafx/scene/control/ListView.class" />
-    <entry file="file://$PROJECT_DIR$/src/sample/DomainClasses/Pizza.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2919">
-          <caret line="154" column="0" lean-forward="false" selection-start-line="154" selection-start-column="0" selection-end-line="154" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/Views/BestellingController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="294">
-          <caret line="39" column="18" lean-forward="false" selection-start-line="39" selection-start-column="18" selection-end-line="39" selection-end-column="18" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#9463#9464#0" expanded="false" />
-            <element signature="e#9508#9509#0" expanded="false" />
-            <element signature="e#11230#11231#0" expanded="false" />
-            <element signature="e#11280#11281#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/DomainClasses/Products.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="84">
-          <caret line="4" column="0" lean-forward="false" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/Views/ProductenController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3822">
-          <caret line="208" column="49" lean-forward="false" selection-start-line="208" selection-start-column="49" selection-end-line="208" selection-end-column="49" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_131/src.zip!/java/net/URLClassLoader.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="6846">
@@ -1360,33 +1155,306 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/Data/PizzaSQLContext.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="25" column="0" lean-forward="false" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
-          <folding>
-            <marker date="1496660793963" expanded="true" signature="738:786" ph="SELECT * FRO... Pizza" />
-            <marker date="1496660793963" expanded="true" signature="1812:2001" ph="SELECT i.* F... Ingredienten" />
-            <marker date="1496660793963" expanded="true" signature="2989:3055" ph="INSERT INTO Pizza... " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/sample/Logic/PizzaRepository.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="252">
           <caret line="19" column="0" lean-forward="false" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
           <folding>
-            <element signature="e#488#489#0" expanded="true" />
+            <element signature="imports" expanded="false" />
+            <element signature="e#351#352#0" expanded="false" />
+            <element signature="e#384#385#0" expanded="false" />
+            <element signature="e#553#554#0" expanded="false" />
+            <element signature="e#608#609#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/sample/Data/Database.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="15" column="100" lean-forward="false" selection-start-line="15" selection-start-column="100" selection-end-line="15" selection-end-column="100" />
+        <state relative-caret-position="378">
+          <caret line="18" column="32" lean-forward="true" selection-start-line="18" selection-start-column="32" selection-end-line="18" selection-end-column="32" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/Data/PizzaSQLContext.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="369">
+          <caret line="84" column="0" lean-forward="false" selection-start-line="84" selection-start-column="0" selection-end-line="84" selection-end-column="0" />
+          <folding>
+            <marker date="1496821035977" expanded="true" signature="738:786" ph="SELECT * FRO... Pizza" />
+            <marker date="1496821035977" expanded="true" signature="1812:2001" ph="SELECT i.* F... Ingredienten" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/Data/OverigeProductenSQLContext.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="747">
+          <caret line="42" column="0" lean-forward="false" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
+          <folding>
+            <marker date="1496660793962" expanded="true" signature="548:578" ph="SELECT * FRO... OverigeProducten" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/Interfaces/IBestellingSQL.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="189">
+          <caret line="13" column="10" lean-forward="false" selection-start-line="13" selection-start-column="10" selection-end-line="13" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/Logic/BestellingRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="23" column="15" lean-forward="false" selection-start-line="23" selection-start-column="15" selection-end-line="23" selection-end-column="15" />
+          <folding>
+            <element signature="e#596#597#0" expanded="false" />
+            <element signature="e#644#645#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/Views/OmzetWinst.fxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="189">
+          <caret line="9" column="0" lean-forward="true" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/Views/Controller.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="693">
+          <caret line="58" column="71" lean-forward="false" selection-start-line="58" selection-start-column="71" selection-end-line="58" selection-end-column="71" />
+          <folding>
+            <element signature="e#2088#2291#0" expanded="true" />
+            <element signature="e#2290#2291#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/Views/OmzetWinstController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="453">
+          <caret line="52" column="48" lean-forward="false" selection-start-line="52" selection-start-column="48" selection-end-line="52" selection-end-column="48" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1129#1415#0" expanded="true" />
+            <element signature="e#1414#1415#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/Data/BestellingSQLContext.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="474">
+          <caret line="143" column="24" lean-forward="false" selection-start-line="143" selection-start-column="24" selection-end-line="143" selection-end-column="24" />
+          <folding>
+            <marker date="1496822192619" expanded="true" signature="1218:1321" ph="Insert into Pizza... " />
+            <marker date="1496822192619" expanded="true" signature="1816:2006" ph="Insert into Bestelregel... " />
+            <marker date="1496822192619" expanded="true" signature="1925:1956" ph="SELECT MAX (... Pizza" />
+            <marker date="1496822192619" expanded="true" signature="1959:1999" ph="Select Max(B... Bestelling" />
+            <marker date="1496822192619" expanded="true" signature="2216:2374" ph="Insert into Bestelregel... " />
+            <marker date="1496822192619" expanded="true" signature="2327:2367" ph="Select Max(B... Bestelling" />
+            <marker date="1496822192619" expanded="true" signature="2682:2836" ph="Insert into Bestelregel... " />
+            <marker date="1496822192619" expanded="true" signature="2792:2832" ph="Select Max(B... Bestelling" />
+            <marker date="1496822192619" expanded="true" signature="3380:3420" ph="Insert into Klant... " />
+            <marker date="1496822192619" expanded="true" signature="3674:3794" ph="Insert into Bestelling... " />
+            <marker date="1496822192619" expanded="true" signature="3756:3790" ph="Select MAX (... Klant" />
+            <marker date="1496822192619" expanded="true" signature="4060:4116" ph="Insert into Bestelling... " />
+            <marker date="1496822192619" expanded="true" signature="4656:4797" ph="SELECT p.* F... Pizza" />
+            <marker date="1496822192619" expanded="true" signature="4656:4798" ph="SELECT p.* F... Pizza" />
+            <marker date="1496822192619" expanded="true" signature="5159:5325" ph="SELECT o.* F... OverigeProducten" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/Data/IngredientenSQLContext.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="474">
+          <caret line="44" column="5" lean-forward="false" selection-start-line="44" selection-start-column="5" selection-end-line="44" selection-end-column="5" />
+          <folding>
+            <marker date="1496821035959" expanded="true" signature="598:624" ph="SELECT * FRO... Ingredienten" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/Interfaces/IBestellingUI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="20" column="36" lean-forward="false" selection-start-line="20" selection-start-column="36" selection-end-line="20" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/ViewModel/BestellingUIRepo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="484">
+          <caret line="33" column="15" lean-forward="false" selection-start-line="33" selection-start-column="15" selection-end-line="33" selection-end-column="15" />
+          <folding>
+            <element signature="e#972#973#0" expanded="true" />
+            <element signature="e#1020#1021#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/Interfaces/IPizzaUI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="15" column="126" lean-forward="false" selection-start-line="15" selection-start-column="126" selection-end-line="15" selection-end-column="126" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/Interfaces/IOverigeProductenUI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="231">
+          <caret line="13" column="92" lean-forward="false" selection-start-line="13" selection-start-column="92" selection-end-line="13" selection-end-column="92" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/Interfaces/IIngredientenUI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="231">
+          <caret line="13" column="106" lean-forward="false" selection-start-line="13" selection-start-column="106" selection-end-line="13" selection-end-column="106" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/ViewModel/IngredientenUIRepo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="462">
+          <caret line="29" column="71" lean-forward="true" selection-start-line="29" selection-start-column="71" selection-end-line="29" selection-end-column="71" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/ViewModel/PizzaUIRepo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="483">
+          <caret line="32" column="71" lean-forward="false" selection-start-line="32" selection-start-column="71" selection-end-line="32" selection-end-column="71" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/ViewModel/OverigeUIRepo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="336">
+          <caret line="23" column="122" lean-forward="false" selection-start-line="23" selection-start-column="122" selection-end-line="23" selection-end-column="122" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/Interfaces/IProducten.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="11" column="37" lean-forward="false" selection-start-line="11" selection-start-column="37" selection-end-line="11" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/Logic/ProductenRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="22" column="69" lean-forward="false" selection-start-line="22" selection-start-column="69" selection-end-line="22" selection-end-column="69" />
+          <folding>
+            <element signature="e#335#336#0" expanded="true" />
+            <element signature="e#375#376#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/Data/ProductenSQLContext.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="29" column="43" lean-forward="false" selection-start-line="29" selection-start-column="43" selection-end-line="29" selection-end-column="43" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <marker date="1496837453965" expanded="true" signature="597:668" ph="UPDATE Pizza... " />
+            <marker date="1496837453965" expanded="true" signature="597:686" ph="UPDATE Pizza... " />
+            <marker date="1496837453965" expanded="true" signature="1270:1368" ph="UPDATE Overi... " />
+            <marker date="1496837453965" expanded="true" signature="1897:2005" ph="UPDATE Ingre... " />
+            <marker date="1496837453965" expanded="true" signature="2782:2848" ph="INSERT INTO Pizza... " />
+            <marker date="1496837453965" expanded="true" signature="3385:3457" ph="INSERT INTO OverigeProducten... " />
+            <marker date="1496837453965" expanded="true" signature="3939:4020" ph="INSERT INTO Ingredienten... " />
+            <marker date="1496837453965" expanded="true" signature="4727:4762" ph="DELETE FROM " />
+            <marker date="1496837453965" expanded="true" signature="4853:4901" ph="DELETE FROM " />
+            <marker date="1496837453965" expanded="true" signature="4988:5037" ph="DELETE FROM " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/Views/ProductenController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-660">
+          <caret line="189" column="44" lean-forward="false" selection-start-line="189" selection-start-column="44" selection-end-line="189" selection-end-column="44" />
+          <folding>
+            <element signature="e#7209#7388#0" expanded="true" />
+            <element signature="e#7387#7388#0" expanded="true" />
+            <element signature="e#12790#12964#0" expanded="true" />
+            <element signature="e#12963#12964#0" expanded="true" />
+            <element signature="e#15865#16038#0" expanded="true" />
+            <element signature="e#16037#16038#0" expanded="true" />
+            <element signature="e#16411#16586#0" expanded="true" />
+            <element signature="e#16585#16586#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/DomainClasses/Bestelling.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="404">
+          <caret line="143" column="59" lean-forward="false" selection-start-line="143" selection-start-column="59" selection-end-line="143" selection-end-column="59" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/DomainClasses/OverigeProducten.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="446">
+          <caret line="72" column="50" lean-forward="false" selection-start-line="72" selection-start-column="50" selection-end-line="72" selection-end-column="50" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/DomainClasses/Ingredienten.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="467">
+          <caret line="79" column="50" lean-forward="false" selection-start-line="79" selection-start-column="50" selection-end-line="79" selection-end-column="50" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/Views/BestellingController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="294">
+          <caret line="39" column="18" lean-forward="false" selection-start-line="39" selection-start-column="18" selection-end-line="39" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/DomainClasses/Pizza.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="421">
+          <caret line="114" column="22" lean-forward="false" selection-start-line="114" selection-start-column="22" selection-end-line="114" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/DomainClasses/Products.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="257">
+          <caret line="33" column="4" lean-forward="false" selection-start-line="33" selection-start-column="4" selection-end-line="33" selection-end-column="4" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

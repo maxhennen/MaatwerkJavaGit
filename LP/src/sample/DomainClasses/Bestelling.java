@@ -10,6 +10,8 @@ import sample.Logic.BestellingRepository;
 
 import javax.swing.*;
 import java.io.*;
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
 import java.util.*;
 
 /**
@@ -118,5 +120,39 @@ public class Bestelling implements IBestellingUI {
             excBTW = product.getVerkoopPrijs() * (float) 0.06;
         }
         return excBTW;
+    }
+
+    public String OmzetWinst(String datum){
+        BestellingRepo = new BestellingRepository(new BestellingSQLContext());
+        float omzet = 0;
+        float winst = 0;
+        for(Products p:BestellingRepo.OmzetWinst(datum)){
+            if(p instanceof Pizza){
+                Pizza pizza = (Pizza) p;
+                for(Ingredienten i : pizza.IngredientenBijPizza(pizza.getID())){
+                    omzet = omzet + i.getVerkoopPrijs();
+                    winst = winst + (i.getVerkoopPrijs() - i.getInkoop());
+                    omzet = p.afrondenVerkoopprijs(omzet);
+                    winst = p.afrondenVerkoopprijs(winst);
+                }
+            }
+            else if(p instanceof OverigeProducten){
+                OverigeProducten overig = (OverigeProducten) p;
+                omzet = omzet + overig.getVerkoopPrijs();
+                winst = winst + (overig.getVerkoopPrijs() - overig.getInkoop());
+                omzet = overig.afrondenVerkoopprijs(omzet);
+                winst = overig.afrondenVerkoopprijs(winst);
+            }
+
+        }
+        return "De omzet: " + afronden(omzet) + " en winst: " + afronden(winst) + " van " + datum;
+    }
+
+    public String afronden(float verkoopprijs){
+        NumberFormat nf = NumberFormat.getNumberInstance();
+        DecimalFormat df = (DecimalFormat) nf;
+        df.applyLocalizedPattern("€00.00");
+        String output = df.format(verkoopprijs);
+        return output;
     }
 }

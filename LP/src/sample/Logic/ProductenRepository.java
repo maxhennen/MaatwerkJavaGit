@@ -20,4 +20,5 @@ public class ProductenRepository {
     public void update(Products product){
         Context.update(product);
     }
+    public void verwijder(Products product){Context.verwijder(product);}
 }

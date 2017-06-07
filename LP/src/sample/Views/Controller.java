@@ -53,6 +53,12 @@ public class Controller extends IController {
         btnWinstOmzet.setLayoutX(0);
         btnWinstOmzet.setMinWidth(170);
         btnWinstOmzet.setText("Omzet Bekijken");
+        btnWinstOmzet.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                newStage("OmzetWinst.fxml",new OmzetWinstController());
+            }
+        });
         AnchorPane.getChildren().add(btnWinstOmzet);
     }
 

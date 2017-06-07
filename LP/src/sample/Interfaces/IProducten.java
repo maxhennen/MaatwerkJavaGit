@@ -9,4 +9,5 @@ import sun.dc.pr.PRError;
 public interface IProducten {
     void update(Products product);
     void opslaan(Products product);
+    void verwijder(Products product);
 }

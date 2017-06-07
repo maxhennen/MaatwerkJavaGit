@@ -20,5 +20,7 @@ public class OverigeUIRepo {
     }
 
     public void updateOverig(int id, String naam, float inkoop, float verkoop, boolean alcohol){Context.updateOverig(id, naam,inkoop,verkoop,alcohol);}
+    public void opslaanOverig(String naam, float inkoop, float verkoop, boolean alcohol){Context.opslaanOverig(naam,inkoop,verkoop,alcohol);}
+    public void verwijderPizza(int id, String naam, float inkoop, float verkoop, boolean alcohol){Context.verwijderOverig(id, naam,inkoop,verkoop,alcohol);}
 
 }

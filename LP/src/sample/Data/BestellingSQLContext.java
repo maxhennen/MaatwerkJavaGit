@@ -1,5 +1,6 @@
 package sample.Data;
 
+import com.sun.org.apache.regexp.internal.RE;
 import com.sun.org.apache.xerces.internal.impl.dv.xs.DateTimeDV;
 import sample.DomainClasses.Klant;
 import sample.DomainClasses.OverigeProducten;
@@ -109,9 +110,47 @@ public class BestellingSQLContext extends Database implements IBestellingSQL  {
         }
     }
 
-    public String DateTimeNow(){
-        java.util.Date date = new java.util.Date();
+    public ArrayList<Products> OmzetWinst(String datum){
+        try {
+            getConnection();
+            ArrayList<Products> producten = new ArrayList<>();
+            String queryPizza = "SELECT p.* FROM Pizza p JOIN Bestelregel r ON r.PizzaID = p.PizzaID JOIN Bestelling b on b.BestellingID = r.BestellingID WHERE b.DatumTijd = ?;";
+            Prep = Conn.prepareStatement(queryPizza);
+            Prep.setString(1,datum);
+            Results = Prep.executeQuery();
 
-        return date.toString();
+            while (Results.next()){
+                Pizza pizza = new Pizza();
+                pizza.setID(Results.getInt("PizzaID"));
+                producten.add(pizza);
+            }
+
+            String queryOverig = "SELECT o.* FROM OverigeProducten o JOIN Bestelregel r ON r.OverigeProductenID = o.ProductID JOIN Bestelling b on b.BestellingID = r.BestellingID WHERE b.DatumTijd = ?;";
+            Prep = Conn.prepareStatement(queryOverig);
+            Prep.setString(1,datum);
+            Results = Prep.executeQuery();
+
+            while (Results.next()){
+                OverigeProducten overig = new OverigeProducten();
+                overig.setID(Results.getInt("ProductID"));
+                overig.setVerkoopPrijs(Results.getFloat("Verkoop"));
+                overig.setInkoop(Results.getFloat("Inkoop"));
+                producten.add(overig);
+            }
+            return producten;
+        }
+        catch (SQLException e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    public String DateTimeNow(){
+        Calendar cal = Calendar.getInstance();
+        int year = cal.get(cal.YEAR);
+        int month = cal.get(cal.MONTH) +1;
+        int day = cal.get(cal.DAY_OF_MONTH);
+
+        return year + "-0" + month + "-0" + day;
     }
 }

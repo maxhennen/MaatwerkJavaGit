@@ -111,6 +111,7 @@ public class Pizza extends Products implements IPizzaUI {
         for (Pizza p: pizzas) {
             p.setVerkoopPrijs((float)(prijsBepalen(PizzaRepo.IngredietenBijPizza(p.getID()),p.getFormaat())* 0.75));
         }
+
         return pizzas;
     }
 
@@ -143,6 +144,18 @@ public class Pizza extends Products implements IPizzaUI {
          opslaan(pizza);
     }
 
+    public void verwijderPizza(int id, String naam, float formaat, String vorm, boolean gluten,ArrayList<Ingredienten> ingredienten){
+        Pizza pizza = new Pizza();
+        pizza.setID(id);
+        pizza.setNaam(naam);
+        pizza.setFormaat(formaat);
+        pizza.setVorm(Vorm.valueOf(vorm));
+        pizza.setGluten(gluten);
+        pizza.setIngredienten(ingredienten);
+
+        verwijder(pizza);
+    }
+
     public void update(Products product){
         setRepo().update(product);
     }
@@ -151,7 +164,9 @@ public class Pizza extends Products implements IPizzaUI {
         setRepo().opslaan(product);
     }
 
+    public void verwijder(Products product){setRepo().verwijder(product);}
+
     public String ToString(){
-        return getID() + " : " + getNaam() + " - " + getFormaat() + " - " + afrondenVerkoopprijs(getVerkoopPrijs());
+        return getID() + " : " + getNaam() + " - " + getFormaat() + " - €" + afrondenVerkoopprijs(getVerkoopPrijs());
     }
 }

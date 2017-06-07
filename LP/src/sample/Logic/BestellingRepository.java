@@ -19,4 +19,8 @@ public class BestellingRepository {
     public void nieuweBestelling(ArrayList<Products> producten, Klant klant, float TotaalPrijs){
         Context.nieuweBestelling(producten, klant,TotaalPrijs);
     }
+
+    public ArrayList<Products> OmzetWinst(String datum){
+        return Context.OmzetWinst(datum);
+    }
 }

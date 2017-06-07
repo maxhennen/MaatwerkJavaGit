@@ -28,4 +28,8 @@ public class PizzaUIRepo {
     public void OpslaanPizza(String naam, float formaat, String vorm, boolean gluten,ArrayList<Ingredienten> ingredienten){
         Context.OpslaanPizza(naam,formaat,vorm,gluten,ingredienten);
     }
+
+    public void verwijderPizza(int id, String naam, float formaat, String vorm, boolean gluten,ArrayList<Ingredienten> ingredienten){
+        Context.verwijderPizza(id,naam,formaat,vorm,gluten,ingredienten);
+    }
 }
