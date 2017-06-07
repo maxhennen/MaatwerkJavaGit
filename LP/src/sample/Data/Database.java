@@ -12,8 +12,8 @@ public class Database {
 
     public void getConnection(){
         try{
-            Class.forName("j");
-            Conn = DriverManager.getConnection("jdbc:odbc:JavaLP","DESKTOP-OBIGL5V",null);
+            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+            Conn = DriverManager.getConnection("jdbc:sqlserver://DESKTOP-OBIGL5V;databaseName=JavaLP;integratedSecurity=true");
         }
         catch (Exception e){
             e.printStackTrace();
